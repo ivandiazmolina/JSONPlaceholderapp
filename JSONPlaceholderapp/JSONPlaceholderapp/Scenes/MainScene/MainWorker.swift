@@ -12,9 +12,7 @@
 
 import UIKit
 
-class MainWorker
-{
-  func doSomeWork()
-  {
+class MainWorker {
+  func doSomeWork() {
   }
 }

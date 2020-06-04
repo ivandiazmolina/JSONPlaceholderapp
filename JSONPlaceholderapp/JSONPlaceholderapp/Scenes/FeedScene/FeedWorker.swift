@@ -12,9 +12,7 @@
 
 import UIKit
 
-class FeedWorker
-{
-  func doSomeWork()
-  {
+class FeedWorker {
+  func doSomeWork() {
   }
 }

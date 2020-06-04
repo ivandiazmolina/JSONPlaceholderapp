@@ -12,9 +12,7 @@
 
 import UIKit
 
-class ExploreWorker
-{
-  func doSomeWork()
-  {
+class ExploreWorker {
+  func doSomeWork() {
   }
 }

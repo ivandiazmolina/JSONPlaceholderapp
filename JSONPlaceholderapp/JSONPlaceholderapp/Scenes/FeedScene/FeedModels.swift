@@ -12,20 +12,15 @@
 
 import UIKit
 
-enum Feed
-{
+enum Feed {
   // MARK: Use cases
   
-  enum Something
-  {
-    struct Request
-    {
+  enum Something {
+    struct Request {
     }
-    struct Response
-    {
+    struct Response {
     }
-    struct ViewModel
-    {
+    struct ViewModel {
     }
   }
 }

@@ -12,26 +12,22 @@
 
 import UIKit
 
-protocol MainBusinessLogic
-{
+protocol MainBusinessLogic {
   func doSomething(request: Main.Something.Request)
 }
 
-protocol MainDataStore
-{
+protocol MainDataStore {
   //var name: String { get set }
 }
 
-class MainInteractor: MainBusinessLogic, MainDataStore
-{
+class MainInteractor: MainBusinessLogic, MainDataStore {
   var presenter: MainPresentationLogic?
   var worker: MainWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: Main.Something.Request)
-  {
+  func doSomething(request: Main.Something.Request) {
     worker = MainWorker()
     worker?.doSomeWork()
     

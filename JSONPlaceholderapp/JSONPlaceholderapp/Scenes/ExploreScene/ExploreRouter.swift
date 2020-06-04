@@ -12,18 +12,15 @@
 
 import UIKit
 
-@objc protocol ExploreRoutingLogic
-{
+@objc protocol ExploreRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol ExploreDataPassing
-{
+protocol ExploreDataPassing {
   var dataStore: ExploreDataStore? { get }
 }
 
-class ExploreRouter: NSObject, ExploreRoutingLogic, ExploreDataPassing
-{
+class ExploreRouter: NSObject, ExploreRoutingLogic, ExploreDataPassing {
   weak var viewController: ExploreViewController?
   var dataStore: ExploreDataStore?
   

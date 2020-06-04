@@ -12,26 +12,22 @@
 
 import UIKit
 
-protocol FeedBusinessLogic
-{
+protocol FeedBusinessLogic {
   func doSomething(request: Feed.Something.Request)
 }
 
-protocol FeedDataStore
-{
+protocol FeedDataStore {
   //var name: String { get set }
 }
 
-class FeedInteractor: FeedBusinessLogic, FeedDataStore
-{
+class FeedInteractor: FeedBusinessLogic, FeedDataStore {
   var presenter: FeedPresentationLogic?
   var worker: FeedWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: Feed.Something.Request)
-  {
+  func doSomething(request: Feed.Something.Request) {
     worker = FeedWorker()
     worker?.doSomeWork()
     

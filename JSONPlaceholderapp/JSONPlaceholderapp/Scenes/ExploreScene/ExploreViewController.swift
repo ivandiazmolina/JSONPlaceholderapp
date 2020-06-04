@@ -12,34 +12,29 @@
 
 import UIKit
 
-protocol ExploreDisplayLogic: class
-{
+protocol ExploreDisplayLogic: class {
   func displaySomething(viewModel: Explore.Something.ViewModel)
 }
 
-class ExploreViewController: UIViewController, ExploreDisplayLogic
-{
+class ExploreViewController: UIViewController, ExploreDisplayLogic {
   var interactor: ExploreBusinessLogic?
   var router: (NSObjectProtocol & ExploreRoutingLogic & ExploreDataPassing)?
 
   // MARK: Object lifecycle
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     setup()
   }
   
-  required init?(coder aDecoder: NSCoder)
-  {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setup()
   }
   
   // MARK: Setup
   
-  private func setup()
-  {
+  private func setup() {
     let viewController = self
     let interactor = ExploreInteractor()
     let presenter = ExplorePresenter()
@@ -54,8 +49,7 @@ class ExploreViewController: UIViewController, ExploreDisplayLogic
   
   // MARK: Routing
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -66,8 +60,7 @@ class ExploreViewController: UIViewController, ExploreDisplayLogic
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
     doSomething()
   }
@@ -76,14 +69,12 @@ class ExploreViewController: UIViewController, ExploreDisplayLogic
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething()
-  {
+  func doSomething() {
     let request = Explore.Something.Request()
     interactor?.doSomething(request: request)
   }
   
-  func displaySomething(viewModel: Explore.Something.ViewModel)
-  {
+  func displaySomething(viewModel: Explore.Something.ViewModel) {
     //nameTextField.text = viewModel.name
   }
 }

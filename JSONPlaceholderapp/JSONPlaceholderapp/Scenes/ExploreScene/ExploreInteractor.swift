@@ -12,26 +12,22 @@
 
 import UIKit
 
-protocol ExploreBusinessLogic
-{
+protocol ExploreBusinessLogic {
   func doSomething(request: Explore.Something.Request)
 }
 
-protocol ExploreDataStore
-{
+protocol ExploreDataStore {
   //var name: String { get set }
 }
 
-class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore
-{
+class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
   var presenter: ExplorePresentationLogic?
   var worker: ExploreWorker?
   //var name: String = ""
   
   // MARK: Do something
   
-  func doSomething(request: Explore.Something.Request)
-  {
+  func doSomething(request: Explore.Something.Request) {
     worker = ExploreWorker()
     worker?.doSomeWork()
     

@@ -31,6 +31,7 @@ class MainViewController: UITabBarController, MainDisplayLogic {
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    
     setup()
   }
   

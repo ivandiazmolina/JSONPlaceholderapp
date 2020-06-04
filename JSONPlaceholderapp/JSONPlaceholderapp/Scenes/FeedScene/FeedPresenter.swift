@@ -12,19 +12,16 @@
 
 import UIKit
 
-protocol FeedPresentationLogic
-{
+protocol FeedPresentationLogic {
   func presentSomething(response: Feed.Something.Response)
 }
 
-class FeedPresenter: FeedPresentationLogic
-{
+class FeedPresenter: FeedPresentationLogic {
   weak var viewController: FeedDisplayLogic?
   
   // MARK: Do something
   
-  func presentSomething(response: Feed.Something.Response)
-  {
+  func presentSomething(response: Feed.Something.Response) {
     let viewModel = Feed.Something.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }

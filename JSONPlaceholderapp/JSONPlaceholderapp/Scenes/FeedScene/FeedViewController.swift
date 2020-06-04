@@ -12,34 +12,31 @@
 
 import UIKit
 
-protocol FeedDisplayLogic: class
-{
+protocol FeedDisplayLogic: class {
   func displaySomething(viewModel: Feed.Something.ViewModel)
 }
 
-class FeedViewController: UIViewController, FeedDisplayLogic
-{
+class FeedViewController: UIViewController, FeedDisplayLogic {
   var interactor: FeedBusinessLogic?
   var router: (NSObjectProtocol & FeedRoutingLogic & FeedDataPassing)?
 
   // MARK: Object lifecycle
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    
     setup()
   }
   
-  required init?(coder aDecoder: NSCoder)
-  {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    
     setup()
   }
   
   // MARK: Setup
   
-  private func setup()
-  {
+  private func setup() {
     let viewController = self
     let interactor = FeedInteractor()
     let presenter = FeedPresenter()
@@ -54,8 +51,7 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   
   // MARK: Routing
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -66,9 +62,9 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   
   // MARK: View lifecycle
   
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
+    
     doSomething()
   }
   
@@ -76,14 +72,12 @@ class FeedViewController: UIViewController, FeedDisplayLogic
   
   //@IBOutlet weak var nameTextField: UITextField!
   
-  func doSomething()
-  {
+  func doSomething() {
     let request = Feed.Something.Request()
     interactor?.doSomething(request: request)
   }
   
-  func displaySomething(viewModel: Feed.Something.ViewModel)
-  {
+  func displaySomething(viewModel: Feed.Something.ViewModel) {
     //nameTextField.text = viewModel.name
   }
 }

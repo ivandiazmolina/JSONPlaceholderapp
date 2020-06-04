@@ -42,7 +42,7 @@
                     <tabBarItem key="tabBarItem" title="Explore" id="6ak-GZ-4l9"/>
                 </viewControllerPlaceholder>
             </objects>
-            <point key="canvasLocation" x="-1036" y="-109"/>
+            <point key="canvasLocation" x="-1012" y="-109"/>
         </scene>
     </scenes>
 </document>

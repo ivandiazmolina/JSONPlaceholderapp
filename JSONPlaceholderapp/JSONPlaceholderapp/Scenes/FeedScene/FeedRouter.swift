@@ -12,18 +12,15 @@
 
 import UIKit
 
-@objc protocol FeedRoutingLogic
-{
+@objc protocol FeedRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol FeedDataPassing
-{
+protocol FeedDataPassing {
   var dataStore: FeedDataStore? { get }
 }
 
-class FeedRouter: NSObject, FeedRoutingLogic, FeedDataPassing
-{
+class FeedRouter: NSObject, FeedRoutingLogic, FeedDataPassing {
   weak var viewController: FeedViewController?
   var dataStore: FeedDataStore?
   
