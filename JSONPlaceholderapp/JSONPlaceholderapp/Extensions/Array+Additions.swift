@@ -6,8 +6,6 @@
 //  Copyright © 2020 Iván Díaz Molina. All rights reserved.
 //
 
-import Foundation
-
 extension Array {
     
     /// Get the element of Index from Array if the index is valid, else return nil

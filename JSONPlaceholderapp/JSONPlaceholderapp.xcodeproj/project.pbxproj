@@ -38,6 +38,7 @@
 		2CDE75902488FF7000949272 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE758F2488FF7000949272 /* String+Additions.swift */; };
 		2CDE75932488FFFC00949272 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2CDE75922488FFFC00949272 /* Localizable.strings */; };
 		2CDE75952489007E00949272 /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE75942489007E00949272 /* Array+Additions.swift */; };
+		2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE759B24890E2600949272 /* UITableView+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		2CDE758F2488FF7000949272 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		2CDE75922488FFFC00949272 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2CDE75942489007E00949272 /* Array+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
+		2CDE759B24890E2600949272 /* UITableView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			children = (
 				2CDE758F2488FF7000949272 /* String+Additions.swift */,
 				2CDE75942489007E00949272 /* Array+Additions.swift */,
+				2CDE759B24890E2600949272 /* UITableView+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				2CDE75852488F9CE00949272 /* ExploreRouter.swift in Sources */,
 				2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */,
 				2CDE75952489007E00949272 /* Array+Additions.swift in Sources */,
+				2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */,
 				2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */,
 				2CDE75782488F8D400949272 /* FeedViewController.swift in Sources */,
 				2CDE75662488F63D00949272 /* MainWorker.swift in Sources */,
