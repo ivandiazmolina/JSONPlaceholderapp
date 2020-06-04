@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yLO-ka-OMF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="nI7-Pp-Hkt">
+            <objects>
+                <tabBarController id="yLO-ka-OMF" customClass="MainViewController" customModule="JSONPlaceholderapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1uV-fX-hQE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="t8F-gC-NuC" kind="relationship" relationship="viewControllers" id="d4K-2o-uXg"/>
+                        <segue destination="0GO-4H-9Yj" kind="relationship" relationship="viewControllers" id="0oU-Vn-xGn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NE3-M7-10g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1183" y="-533"/>
+        </scene>
+        <!--FeedStoryboard-->
+        <scene sceneID="bDr-F6-bbx">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bXs-sE-sHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="FeedStoryboard" id="t8F-gC-NuC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" id="V9W-9o-wnU"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="-1367" y="-109"/>
+        </scene>
+        <!--ExploreStoryboard-->
+        <scene sceneID="pJd-RF-d81">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="big-0c-ZN4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ExploreStoryboard" id="0GO-4H-9Yj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Explore" id="6ak-GZ-4l9"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="-1036" y="-109"/>
+        </scene>
+    </scenes>
+</document>
