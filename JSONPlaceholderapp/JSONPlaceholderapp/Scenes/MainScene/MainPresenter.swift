@@ -13,16 +13,15 @@
 import UIKit
 
 protocol MainPresentationLogic {
-  func presentSomething(response: Main.Something.Response)
+    func setupView(response: Main.Models.Response)
 }
 
 class MainPresenter: MainPresentationLogic {
-  weak var viewController: MainDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: Main.Something.Response) {
-    let viewModel = Main.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    
+    weak var viewController: MainDisplayLogic?
+    
+    func setupView(response: Main.Models.Response) {
+        let viewModel = Main.Models.ViewModel()
+        viewController?.setupView(viewModel: viewModel)
+    }
 }

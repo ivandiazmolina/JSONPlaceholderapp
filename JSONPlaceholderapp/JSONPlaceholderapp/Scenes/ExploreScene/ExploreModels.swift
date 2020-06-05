@@ -13,14 +13,14 @@
 import UIKit
 
 enum Explore {
-  // MARK: Use cases
-  
-  enum Something {
-    struct Request {
+    // MARK: Use cases
+    
+    enum Something {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
     }
-    struct Response {
-    }
-    struct ViewModel {
-    }
-  }
 }

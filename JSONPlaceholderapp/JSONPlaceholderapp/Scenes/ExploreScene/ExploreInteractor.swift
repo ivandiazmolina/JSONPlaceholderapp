@@ -13,25 +13,25 @@
 import UIKit
 
 protocol ExploreBusinessLogic {
-  func doSomething(request: Explore.Something.Request)
+    func doSomething(request: Explore.Something.Request)
 }
 
 protocol ExploreDataStore {
-  //var name: String { get set }
+    //var name: String { get set }
 }
 
 class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
-  var presenter: ExplorePresentationLogic?
-  var worker: ExploreWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Explore.Something.Request) {
-    worker = ExploreWorker()
-    worker?.doSomeWork()
+    var presenter: ExplorePresentationLogic?
+    var worker: ExploreWorker?
+    //var name: String = ""
     
-    let response = Explore.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    // MARK: Do something
+    
+    func doSomething(request: Explore.Something.Request) {
+        worker = ExploreWorker()
+        worker?.doSomeWork()
+        
+        let response = Explore.Something.Response()
+        presenter?.presentSomething(response: response)
+    }
 }

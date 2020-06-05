@@ -14,11 +14,26 @@
                     <view key="view" contentMode="scaleToFill" id="sp0-Rh-FDp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="onb-2e-Xbj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tz0-uU-ERn" firstAttribute="bottom" secondItem="onb-2e-Xbj" secondAttribute="bottom" id="18i-fK-0L7"/>
+                            <constraint firstItem="onb-2e-Xbj" firstAttribute="top" secondItem="tz0-uU-ERn" secondAttribute="top" id="6yG-kq-S8J"/>
+                            <constraint firstItem="tz0-uU-ERn" firstAttribute="trailing" secondItem="onb-2e-Xbj" secondAttribute="trailing" id="HSI-3U-RMD"/>
+                            <constraint firstItem="onb-2e-Xbj" firstAttribute="leading" secondItem="tz0-uU-ERn" secondAttribute="leading" id="TAc-48-5dk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tz0-uU-ERn"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="square.and.arrow.up" catalog="system" id="Jly-bQ-Tv2"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="home" id="Jly-bQ-Tv2"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="feedTableView" destination="onb-2e-Xbj" id="EhB-sg-71l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdQ-nt-ha4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -26,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.arrow.up" catalog="system" width="56" height="64"/>
+        <image name="home" width="30" height="30"/>
     </resources>
 </document>

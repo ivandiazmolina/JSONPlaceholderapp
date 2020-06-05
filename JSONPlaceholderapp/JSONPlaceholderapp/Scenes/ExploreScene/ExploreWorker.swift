@@ -13,6 +13,6 @@
 import UIKit
 
 class ExploreWorker {
-  func doSomeWork() {
-  }
+    func doSomeWork() {
+    }
 }

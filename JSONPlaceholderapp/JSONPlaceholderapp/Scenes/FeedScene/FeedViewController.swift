@@ -13,71 +13,105 @@
 import UIKit
 
 protocol FeedDisplayLogic: class {
-  func displaySomething(viewModel: Feed.Something.ViewModel)
+    func setupView(viewModel: Feed.Models.ViewModel)
+    func displayPosts(viewModel: Feed.Models.ViewModel)
 }
 
-class FeedViewController: UIViewController, FeedDisplayLogic {
-  var interactor: FeedBusinessLogic?
-  var router: (NSObjectProtocol & FeedRoutingLogic & FeedDataPassing)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+class FeedViewController: BaseViewController, FeedDisplayLogic {
+    var interactor: FeedBusinessLogic?
+    var router: (NSObjectProtocol & FeedRoutingLogic & FeedDataPassing)?
     
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
+    // MARK: IBOutlets
+    @IBOutlet weak var feedTableView: UITableView!
     
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup() {
-    let viewController = self
-    let interactor = FeedInteractor()
-    let presenter = FeedPresenter()
-    let router = FeedRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    // MARK: Object lifecycle
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        setup()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
     
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething() {
-    let request = Feed.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: Feed.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
-  }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        setup()
+    }
+    
+    // MARK: Setup
+    
+    private func setup() {
+        let viewController = self
+        let interactor = FeedInteractor()
+        let presenter = FeedPresenter()
+        let router = FeedRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+    }
+    
+    // MARK: Routing
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        interactor?.setupView()
+        interactor?.getPosts()
+    }
+    
+    /// setup and customize the UI elements in the scene
+    func setupView(viewModel: Feed.Models.ViewModel) {
+        print(viewModel)
+        
+        // TableView
+        feedTableView.register(FeedTableViewCell.cellIdentifier)
+        feedTableView.delegate = self
+        feedTableView.dataSource = self
+    }
+    
+    func displayPosts(viewModel: Feed.Models.ViewModel) {
+        
+        ui { [weak self] in
+            self?.feedTableView.reloadData()
+        }
+    }
+}
+
+// MARK: UITableviewDelegate and UITableViewDataSource
+extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return interactor?.getPostsCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.cellIdentifier) as? FeedTableViewCell else {
+            print("Error to cast TableViewCell to FeedTableViewCell")
+            return UITableViewCell()
+        }
+        
+        guard let data = interactor?.getPostCellFor(index: indexPath.row) else {
+            print("Error to get PostCellModel from index")
+            return UITableViewCell()
+        }
+        
+        cell.updateUI(model: data)
+        
+        return cell
+    }
 }

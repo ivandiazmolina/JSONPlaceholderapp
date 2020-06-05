@@ -13,25 +13,57 @@
 import UIKit
 
 protocol FeedBusinessLogic {
-  func doSomething(request: Feed.Something.Request)
+    func setupView()
+    
+    // Posts
+    func getPosts()
+    func getPostsCount() -> Int
+    func getPostCellFor(index: Int) -> Feed.Models.PostCellModel
 }
 
 protocol FeedDataStore {
-  //var name: String { get set }
+    var posts: [Post]? { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore {
-  var presenter: FeedPresentationLogic?
-  var worker: FeedWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Feed.Something.Request) {
-    worker = FeedWorker()
-    worker?.doSomeWork()
     
-    let response = Feed.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var presenter: FeedPresentationLogic?
+    var worker: FeedWorker?
+    
+    var posts: [Post]?
+    
+    func setupView() {
+        worker = FeedWorker()
+        let response: Feed.Models.Response = Feed.Models.Response()
+        presenter?.setupView(response: response)
+    }
+    
+    
+    // MARK: Posts
+    func getPosts() {
+        worker?.getPosts(completion: { [weak self] (posts, error) in
+            
+            guard posts != nil else {
+                return
+            }
+            
+            self?.posts = posts
+            
+            PostsManager.shared.setPosts(self?.posts ?? [])
+            
+            let response = Feed.Models.Response(posts: posts)
+            self?.presenter?.presentAllPosts(response: response)
+            
+            //TO-DO comprobar error para mostrar mensaje en pantalla
+        })
+    }
+    
+    func getPostsCount() -> Int {
+        return posts?.count ?? 0
+    }
+    
+    func getPostCellFor(index: Int) -> Feed.Models.PostCellModel {
+        guard let post = posts?.getElement(index) else { return Feed.Models.PostCellModel() }
+        return Feed.Models.PostCellModel(post: post)
+    }
 }

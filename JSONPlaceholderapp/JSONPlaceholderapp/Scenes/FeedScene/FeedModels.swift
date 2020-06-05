@@ -13,14 +13,20 @@
 import UIKit
 
 enum Feed {
-  // MARK: Use cases
-  
-  enum Something {
-    struct Request {
+    
+    // MARK: Use cases
+    
+    enum Models {
+        struct Request {
+        }
+        struct Response {
+            var posts: [Post]?
+        }
+        struct ViewModel {
+            var posts: [Post]?
+        }
+        struct PostCellModel {
+            var post: Post?
+        }
     }
-    struct Response {
-    }
-    struct ViewModel {
-    }
-  }
 }
