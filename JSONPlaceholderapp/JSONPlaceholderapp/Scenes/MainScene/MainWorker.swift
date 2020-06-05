@@ -13,4 +13,56 @@
 import UIKit
 
 class MainWorker {
+    
+    
+    func getInicialData(completion: @escaping([Post]?, [User]?, String?) -> Void) {
+        
+        // VARS
+        var posts: [Post]?
+        var users: [User]?
+        var mError: String?
+        let dispatchGroup = DispatchGroup()
+        
+        // Get Posts
+        dispatchGroup.enter()
+        JSONPlaceholderManager.shared.getPost() { (response) in
+            
+            switch response {
+            case .success(let result):
+                posts = result
+            case .failure(let error):
+                posts = []
+                mError = error
+            }
+            
+            dispatchGroup.leave()
+        }
+        
+        // Get Users
+        dispatchGroup.enter()
+        JSONPlaceholderManager.shared.getUsers { (response) in
+            
+            switch response {
+            case .success(let result):
+                users = result
+            case .failure(let error):
+                users = []
+                mError = error
+            }
+            
+            dispatchGroup.leave()
+        }
+        
+        // COMMON
+        dispatchGroup.notify(queue: .main) {
+            
+            guard mError != nil else {
+                completion(posts, users, nil)
+                return
+            }
+            
+            completion([], [], "")
+        }
+    }
+    
 }

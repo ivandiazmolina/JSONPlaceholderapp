@@ -20,10 +20,8 @@ enum Feed {
         struct Request {
         }
         struct Response {
-            var posts: [Post]?
         }
         struct ViewModel {
-            var posts: [Post]?
         }
         struct PostCellModel {
             var post: Post?

@@ -13,25 +13,45 @@
 import UIKit
 
 protocol ExploreBusinessLogic {
-    func doSomething(request: Explore.Something.Request)
+    func setupView()
+    
+    // MARK: Users
+    func setUsers(_ users: [User])
+    func getUsersCount() -> Int
+    func getUserCellFor(index: Int) -> Explore.Models.UserCellModel
 }
 
 protocol ExploreDataStore {
-    //var name: String { get set }
+    var users: [User]? { get set }
 }
 
 class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
     var presenter: ExplorePresentationLogic?
     var worker: ExploreWorker?
-    //var name: String = ""
     
-    // MARK: Do something
+    var users: [User]?
     
-    func doSomething(request: Explore.Something.Request) {
+    func setupView() {
         worker = ExploreWorker()
-        worker?.doSomeWork()
+        let response: Explore.Models.Response = Explore.Models.Response()
+        presenter?.setupView(response: response)
+    }
+    
+    // MARK: Users
+    
+    func setUsers(_ users: [User]) {
+        self.users = users
         
-        let response = Explore.Something.Response()
-        presenter?.presentSomething(response: response)
+//        let response: Feed.Models.Response = Feed.Models.Response()
+//        presenter?.setupView(response: response)
+    }
+    
+    func getUsersCount() -> Int {
+        return users?.count ?? 0
+    }
+    
+    func getUserCellFor(index: Int) -> Explore.Models.UserCellModel {
+        guard let user = users?.getElement(index) else { return Explore.Models.UserCellModel() }
+        return Explore.Models.UserCellModel(user: user)
     }
 }

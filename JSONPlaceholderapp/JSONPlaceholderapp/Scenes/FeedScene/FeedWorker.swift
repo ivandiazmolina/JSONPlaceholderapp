@@ -13,16 +13,4 @@
 import UIKit
 
 class FeedWorker {
-    
-    func getPosts(completion: @escaping([Post]?, String?) -> Void) {
-        JSONPlaceholderManager.shared.getPost() { (response) in
-            
-            switch response {
-            case .success(let result):
-                completion(result, nil)
-            case .failure(let error):
-                completion(nil, error)
-            }
-        }
-    }
 }

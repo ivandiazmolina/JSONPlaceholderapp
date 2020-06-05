@@ -18,6 +18,7 @@ protocol FeedDisplayLogic: class {
 }
 
 class FeedViewController: BaseViewController, FeedDisplayLogic {
+    
     var interactor: FeedBusinessLogic?
     var router: (NSObjectProtocol & FeedRoutingLogic & FeedDataPassing)?
     
@@ -50,7 +51,7 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
+        router.dataStore = interactor        
     }
     
     // MARK: Routing
@@ -69,13 +70,15 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let parent = parent as? MainViewController {
+            parent.mainDelegate = self
+        }
+        
         interactor?.setupView()
-        interactor?.getPosts()
     }
     
     /// setup and customize the UI elements in the scene
     func setupView(viewModel: Feed.Models.ViewModel) {
-        print(viewModel)
         
         // TableView
         feedTableView.register(FeedTableViewCell.cellIdentifier)
@@ -85,6 +88,12 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
     
     func displayPosts(viewModel: Feed.Models.ViewModel) {
         
+        print(viewModel)
+        
+        reloadData()
+    }
+    
+    func reloadData() {
         ui { [weak self] in
             self?.feedTableView.reloadData()
         }
@@ -92,6 +101,7 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
 }
 
 // MARK: UITableviewDelegate and UITableViewDataSource
+
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,5 +123,15 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.updateUI(model: data)
         
         return cell
+    }
+}
+
+
+// MARK: MainDelegate
+
+extension FeedViewController: MainDelegate {
+   
+    func fetchedPosts(posts: [Post]) {
+        reloadData()
     }
 }

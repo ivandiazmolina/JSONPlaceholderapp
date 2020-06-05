@@ -14,6 +14,7 @@ import UIKit
 
 protocol MainBusinessLogic {
     func setupView()
+    func getInitialData()
 }
 
 protocol MainDataStore {
@@ -24,10 +25,28 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
     var presenter: MainPresentationLogic?
     var worker: MainWorker?
     
-    
     func setupView() {
         worker = MainWorker()
         let response: Main.Models.Response = Main.Models.Response()
         presenter?.setupView(response: response)
+    }
+    
+    func getInitialData() {
+        worker?.getInicialData(completion: { [weak self] (posts, users, error) in
+            
+            guard error != nil else {
+                
+                //SUCESS
+                PostsManager.shared.setPosts(posts ?? [])
+                UsersManager.shared.setUsers(users ?? [])
+                
+                let response = Main.Models.Response(posts: posts, users: users)
+                
+                self?.presenter?.presentPostsAndUsers(response: response)
+                return
+            }
+            
+            // FAILURE
+        })
     }
 }

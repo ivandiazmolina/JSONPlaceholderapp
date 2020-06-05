@@ -13,12 +13,19 @@
 import UIKit
 
 protocol ExploreDisplayLogic: class {
-    func displaySomething(viewModel: Explore.Something.ViewModel)
+    func setupView(viewModel: Explore.Models.ViewModel)
+    func displayUsers(viewModel: Explore.Models.ViewModel)
 }
 
 class ExploreViewController: BaseViewController, ExploreDisplayLogic {
+    
     var interactor: ExploreBusinessLogic?
     var router: (NSObjectProtocol & ExploreRoutingLogic & ExploreDataPassing)?
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var exploreCollectionView: UICollectionView!
+    
+    let CELL_SIZE: CGFloat = 220
     
     // MARK: Object lifecycle
     
@@ -45,6 +52,9 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+        
+        
+        
     }
     
     // MARK: Routing
@@ -62,19 +72,67 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        
+        interactor?.setupView()
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = Explore.Something.Request()
-        interactor?.doSomething(request: request)
+    func setupView(viewModel: Explore.Models.ViewModel) {
+        
+        //CollectionView
+        exploreCollectionView.register(ExploreCollectionViewCell.cellIdentifier)
+        exploreCollectionView.delegate = self
+        exploreCollectionView.dataSource = self
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width/2-10, height: CELL_SIZE)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        flowLayout.minimumInteritemSpacing = 0.0
+        exploreCollectionView.collectionViewLayout = flowLayout
     }
     
-    func displaySomething(viewModel: Explore.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayUsers(viewModel: Explore.Models.ViewModel) {
+        print(viewModel)
+        
+        reloadData()
+    }
+    
+    func reloadData() {
+        ui { [weak self] in
+            self?.exploreCollectionView.reloadData()
+        }
+    }
+}
+
+// MARK: UICollectionViewDelegate, UICollectionViewDatasource
+extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExploreCollectionViewCell.cellIdentifier, for: indexPath) as? ExploreCollectionViewCell else {
+            print("Error to cast UICollectionViewCell to ExploreCollectionViewCell")
+            return UICollectionViewCell()
+        }
+        
+        guard let data = interactor?.getUserCellFor(index: indexPath.row) else {
+            print("Error to get UserCellModel from index")
+            return UICollectionViewCell()
+        }
+        
+        cell.updateUI(model: data)
+        
+        return cell
+    }
+}
+
+// MARK: MainDelegate
+
+extension FeedViewController: MainDelegate {
+   
+    func fetchedPosts(posts: [Post]) {
+        reloadData()
     }
 }

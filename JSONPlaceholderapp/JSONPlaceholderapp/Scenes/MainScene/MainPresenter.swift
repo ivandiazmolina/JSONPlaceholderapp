@@ -14,6 +14,7 @@ import UIKit
 
 protocol MainPresentationLogic {
     func setupView(response: Main.Models.Response)
+    func presentPostsAndUsers(response: Main.Models.Response)
 }
 
 class MainPresenter: MainPresentationLogic {
@@ -23,5 +24,10 @@ class MainPresenter: MainPresentationLogic {
     func setupView(response: Main.Models.Response) {
         let viewModel = Main.Models.ViewModel()
         viewController?.setupView(viewModel: viewModel)
+    }
+    
+    func presentPostsAndUsers(response: Main.Models.Response) {
+        let viewModel = Main.Models.ViewModel(posts: response.posts, users: response.users)
+        viewController?.displayPostsAndUsers(viewModel: viewModel)
     }
 }

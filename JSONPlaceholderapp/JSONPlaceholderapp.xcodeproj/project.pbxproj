@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2C57F16C248A2AB7007FF471 /* PostsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F16B248A2AB7007FF471 /* PostsManager.swift */; };
+		2C57F16E248A2F91007FF471 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F16D248A2F91007FF471 /* User.swift */; };
+		2C57F170248A331E007FF471 /* UsersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F16F248A331E007FF471 /* UsersManager.swift */; };
+		2C57F174248A3E84007FF471 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */; };
+		2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */; };
+		2C57F177248A4132007FF471 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -58,6 +63,11 @@
 
 /* Begin PBXFileReference section */
 		2C57F16B248A2AB7007FF471 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
+		2C57F16D248A2F91007FF471 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2C57F16F248A331E007FF471 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
+		2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,8 +132,18 @@
 			isa = PBXGroup;
 			children = (
 				2C57F16B248A2AB7007FF471 /* PostsManager.swift */,
+				2C57F16F248A331E007FF471 /* UsersManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		2C57F171248A3E01007FF471 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */,
+				2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2CDE752F2488F2E000949272 = {
@@ -214,6 +234,7 @@
 		2CDE757C2488F94D00949272 /* ExploreScene */ = {
 			isa = PBXGroup;
 			children = (
+				2C57F171248A3E01007FF471 /* View */,
 				2CDE757D2488F9CE00949272 /* ExplorePresenter.swift */,
 				2CDE757E2488F9CE00949272 /* ExploreWorker.swift */,
 				2CDE757F2488F9CE00949272 /* ExploreRouter.swift */,
@@ -239,6 +260,7 @@
 				2CDE758F2488FF7000949272 /* String+Additions.swift */,
 				2CDE75942489007E00949272 /* Array+Additions.swift */,
 				2CDE759B24890E2600949272 /* UITableView+Additions.swift */,
+				2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -273,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				2CDE75A1248916E700949272 /* Post.swift */,
+				2C57F16D248A2F91007FF471 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +385,7 @@
 				2CDE75932488FFFC00949272 /* Localizable.strings in Resources */,
 				2CDE75452488F2E200949272 /* Assets.xcassets in Resources */,
 				2CDE756C2488F66F00949272 /* MainStoryboard.storyboard in Resources */,
+				2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */,
 				2CDE757B2488F8E300949272 /* FeedStoryboard.storyboard in Resources */,
 				2CDE758A2488FA3C00949272 /* ExploreStoryboard.storyboard in Resources */,
 				2CDE759A2489076300949272 /* FeedTableViewCell.xib in Resources */,
@@ -382,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C57F174248A3E84007FF471 /* ExploreCollectionViewCell.swift in Sources */,
 				2CDE75762488F8D400949272 /* FeedRouter.swift in Sources */,
 				2CDE75882488F9CE00949272 /* ExploreInteractor.swift in Sources */,
 				2CDE75862488F9CE00949272 /* ExploreModels.swift in Sources */,
@@ -390,6 +415,8 @@
 				2CDE75992489076300949272 /* FeedTableViewCell.swift in Sources */,
 				2CDE75742488F8D400949272 /* FeedPresenter.swift in Sources */,
 				2CDE758E2488FEA000949272 /* Threads.swift in Sources */,
+				2C57F177248A4132007FF471 /* UICollectionView+Additions.swift in Sources */,
+				2C57F16E248A2F91007FF471 /* User.swift in Sources */,
 				2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */,
 				2CDE75852488F9CE00949272 /* ExploreRouter.swift in Sources */,
 				2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */,
@@ -411,6 +438,7 @@
 				2CDE75692488F63D00949272 /* MainViewController.swift in Sources */,
 				2CDE75752488F8D400949272 /* FeedWorker.swift in Sources */,
 				2CDE75842488F9CE00949272 /* ExploreWorker.swift in Sources */,
+				2C57F170248A331E007FF471 /* UsersManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

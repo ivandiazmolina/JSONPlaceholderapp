@@ -20,8 +20,12 @@ enum Main {
         struct Request {
         }
         struct Response {
+            var posts: [Post]?
+            var users: [User]?
         }
         struct ViewModel {
+            var posts: [Post]?
+            var users: [User]?
         }
     }
 }

@@ -13,10 +13,11 @@
 import UIKit
 
 protocol FeedBusinessLogic {
+    
     func setupView()
     
-    // Posts
-    func getPosts()
+    // MARK: Posts
+    func setPosts(_ posts: [Post])
     func getPostsCount() -> Int
     func getPostCellFor(index: Int) -> Feed.Models.PostCellModel
 }
@@ -40,22 +41,12 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     
     
     // MARK: Posts
-    func getPosts() {
-        worker?.getPosts(completion: { [weak self] (posts, error) in
-            
-            guard posts != nil else {
-                return
-            }
-            
-            self?.posts = posts
-            
-            PostsManager.shared.setPosts(self?.posts ?? [])
-            
-            let response = Feed.Models.Response(posts: posts)
-            self?.presenter?.presentAllPosts(response: response)
-            
-            //TO-DO comprobar error para mostrar mensaje en pantalla
-        })
+    
+    func setPosts(_ posts: [Post]) {
+        self.posts = posts
+        
+        let response: Feed.Models.Response = Feed.Models.Response()
+        presenter?.setupView(response: response)
     }
     
     func getPostsCount() -> Int {

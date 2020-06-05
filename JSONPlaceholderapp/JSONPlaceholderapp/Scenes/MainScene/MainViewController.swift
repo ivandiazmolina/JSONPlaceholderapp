@@ -14,12 +14,24 @@ import UIKit
 
 protocol MainDisplayLogic: class {
     func setupView(viewModel: Main.Models.ViewModel)
+    func displayPostsAndUsers(viewModel: Main.Models.ViewModel)
+}
+
+protocol MainDelegate: class {
+    func fetchedPosts(posts: [Post])
+    func fetchedUsers(users: [User])
+}
+
+extension MainDelegate {
+    func fetchedPosts(posts: [Post]) {}
+    func fetchedUsers(users: [User]) {}
 }
 
 class MainViewController: UITabBarController, MainDisplayLogic {
     
     var interactor: MainBusinessLogic?
     var router: (NSObjectProtocol & MainRoutingLogic & MainDataPassing)?
+    weak var mainDelegate: MainDelegate?
     
     // MARK: Object lifecycle
     
@@ -68,9 +80,30 @@ class MainViewController: UITabBarController, MainDisplayLogic {
         super.viewDidLoad()
         
         interactor?.setupView()
+        interactor?.getInitialData()
     }
     
     func setupView(viewModel: Main.Models.ViewModel) {
+        print("")
+    }
+    
+    func displayPostsAndUsers(viewModel: Main.Models.ViewModel) {
+        
         print(viewModel)
+        
+        let feedVC = viewControllers?.getElement(0) as? FeedViewController
+        let exploreVC = viewControllers?.getElement(1) as? ExploreViewController
+        
+        feedVC?.interactor?.setPosts(viewModel.posts ?? [])
+        exploreVC?.interactor?.setUsers(viewModel.users ?? [])
+        
+        
+        guard let delegate = mainDelegate else {
+            print("mainDelegate is not initialized")
+            return
+        }
+        
+        delegate.fetchedPosts(posts: viewModel.posts ?? [])
+        delegate.fetchedUsers(users: viewModel.users ?? [])
     }
 }
