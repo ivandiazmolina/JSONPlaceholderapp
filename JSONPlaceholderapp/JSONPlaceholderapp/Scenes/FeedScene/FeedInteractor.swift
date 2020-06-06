@@ -44,9 +44,6 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     
     func setPosts(_ posts: [Post]) {
         self.posts = posts
-        
-        let response: Feed.Models.Response = Feed.Models.Response()
-        presenter?.setupView(response: response)
     }
     
     func getPostsCount() -> Int {

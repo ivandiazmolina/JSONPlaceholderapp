@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol ExploreRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToProfile(segue: UIStoryboardSegue?)
 }
 
 protocol ExploreDataPassing {
@@ -21,37 +21,35 @@ protocol ExploreDataPassing {
 }
 
 class ExploreRouter: NSObject, ExploreRoutingLogic, ExploreDataPassing {
+    
     weak var viewController: ExploreViewController?
     var dataStore: ExploreDataStore?
     
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToProfile(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! ProfileViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToProfile(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: "ProfileStoryboard", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToProfile(source: dataStore!, destination: &destinationDS)
+            navigateToProfile(source: viewController!, destination: destinationVC)
+        }
+    }
     
     // MARK: Navigation
     
-    //func navigateToSomewhere(source: ExploreViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
+    func navigateToProfile(source: ExploreViewController, destination: ProfileViewController) {
+        source.show(destination, sender: nil)
+    }
     
     // MARK: Passing data
     
-    //func passDataToSomewhere(source: ExploreDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    func passDataToProfile(source: ExploreDataStore, destination: inout ProfileDataStore) {
+//        destination.name = source.name
+    }
 }

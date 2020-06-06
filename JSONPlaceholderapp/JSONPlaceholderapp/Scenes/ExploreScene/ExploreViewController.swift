@@ -126,6 +126,11 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "routeToProfile", sender: indexPath)
+    }
+    
 }
 
 // MARK: MainDelegate

@@ -50,11 +50,22 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="exploreCollectionView" destination="rgH-NK-Gpm" id="r2O-sz-652"/>
+                        <segue destination="oAC-dd-gNi" kind="show" identifier="routeToProfile" id="gd1-CI-rKl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBc-is-5jb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-296" y="5"/>
+        </scene>
+        <!--ProfileStoryboard-->
+        <scene sceneID="gP1-QE-USr">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileStoryboard" storyboardName="ProfileStoryboard" id="oAC-dd-gNi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="DaE-vJ-wWZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLV-Jm-gLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="583" y="5"/>
         </scene>
     </scenes>
     <resources>

@@ -97,7 +97,6 @@ class MainViewController: UITabBarController, MainDisplayLogic {
         feedVC?.interactor?.setPosts(viewModel.posts ?? [])
         exploreVC?.interactor?.setUsers(viewModel.users ?? [])
         
-        
         guard let delegate = mainDelegate else {
             print("mainDelegate is not initialized")
             return

@@ -41,9 +41,6 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
     
     func setUsers(_ users: [User]) {
         self.users = users
-        
-//        let response: Feed.Models.Response = Feed.Models.Response()
-//        presenter?.setupView(response: response)
     }
     
     func getUsersCount() -> Int {
