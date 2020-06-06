@@ -1,5 +1,5 @@
 //
-//  APIPostRepository.swift
+//  APIUserRepository.swift
 //  JSONPlaceholderapp
 //
 //  Created by Iván Díaz Molina on 06/06/2020.
@@ -8,17 +8,16 @@
 
 import Foundation
 
-class APIPostRepository: APIBaseRepository, PostRepositoryProtocol {
-    
-    func getPosts(completion: @escaping ([Post]) -> Void) {
+class APIUserRepository: APIBaseRepository, UserRepositoryProtocol {
+    func getUsers(completion: @escaping ([User]) -> Void) {
         
         // 1. try to init the URL
-        guard let url = URL(string: POSTS_URL) else {
+        guard let url = URL(string: USERS_URL) else {
             completion([])
             return
         }
-        
-        // 4. execute the request
+
+        // 3. execute the request
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             ui {
@@ -26,10 +25,10 @@ class APIPostRepository: APIBaseRepository, PostRepositoryProtocol {
                     completion([])
                     return
                 }
-                
+                                
                 do {
-                    let decodePosts = try JSONDecoder().decode([Post].self, from: data)
-                    completion(decodePosts)
+                    let decodeUsers = try JSONDecoder().decode([User].self, from: data)
+                    completion(decodeUsers)
                     return
                 } catch {
                     completion([])

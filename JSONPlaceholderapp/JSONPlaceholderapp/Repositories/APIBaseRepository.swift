@@ -21,4 +21,5 @@ class APIBaseRepository {
     
     static internal let BASE_URL = "https://jsonplaceholder.typicode.com"
     internal let POSTS_URL = BASE_URL + "/posts"
+    internal let USERS_URL = BASE_URL + "/users"
 }

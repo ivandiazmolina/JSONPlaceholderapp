@@ -14,15 +14,17 @@ import UIKit
 
 class MainWorker {
     
-    
     func getInicialData(completion: @escaping([Post]?, [User]?, String?) -> Void) {
         
-        // VARS
+        // LETS and VARS
         var mPosts: [Post]?
         var mUsers: [User]?
-        var mError: String?
+        
         let dispatchGroup = DispatchGroup()
+        
         let postRepository = PostRepository()
+        let userRepository = UserRepository()
+        
         
         // Get Posts
         dispatchGroup.enter()
@@ -34,28 +36,15 @@ class MainWorker {
         
         // Get Users
         dispatchGroup.enter()
-        JSONPlaceholderManager.shared.getUsers { (response) in
-            
-            switch response {
-            case .success(let result):
-                mUsers = result
-            case .failure(let error):
-                mUsers = []
-                mError = error
-            }
-            
+        userRepository.getUsers() { users in
+            print(users)
+            mUsers = users
             dispatchGroup.leave()
         }
-        
-        // COMMON
+
+        // DispatchGroup
         dispatchGroup.notify(queue: .main) {
-            
-            guard mError != nil else {
-                completion(mPosts, mUsers, nil)
-                return
-            }
-            
-            completion([], [], "")
+            completion(mPosts, mUsers, nil)
         }
     }
 }

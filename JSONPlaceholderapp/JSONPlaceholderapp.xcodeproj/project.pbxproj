@@ -53,6 +53,9 @@
 		2CE2BD1D248C03E30064A8EE /* LocalPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */; };
 		2CE2BD1F248C043E0064A8EE /* APIPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1E248C043E0064A8EE /* APIPostRepository.swift */; };
 		2CE2BD23248C106E0064A8EE /* APIBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */; };
+		2CE2BD2A248C19120064A8EE /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD29248C19120064A8EE /* UserRepository.swift */; };
+		2CE2BD2C248C19990064A8EE /* APIUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD2B248C19990064A8EE /* APIUserRepository.swift */; };
+		2CE2BD2E248C1A5A0064A8EE /* LocalUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD2D248C1A5A0064A8EE /* LocalUserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,9 @@
 		2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPostRepository.swift; sourceTree = "<group>"; };
 		2CE2BD1E248C043E0064A8EE /* APIPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPostRepository.swift; sourceTree = "<group>"; };
 		2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBaseRepository.swift; sourceTree = "<group>"; };
+		2CE2BD29248C19120064A8EE /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		2CE2BD2B248C19990064A8EE /* APIUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserRepository.swift; sourceTree = "<group>"; };
+		2CE2BD2D248C1A5A0064A8EE /* LocalUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +320,7 @@
 			children = (
 				2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */,
 				2CE2BD24248C166F0064A8EE /* Posts */,
+				2CE2BD28248C19020064A8EE /* Users */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -326,6 +333,16 @@
 				2CE2BD1E248C043E0064A8EE /* APIPostRepository.swift */,
 			);
 			path = Posts;
+			sourceTree = "<group>";
+		};
+		2CE2BD28248C19020064A8EE /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				2CE2BD29248C19120064A8EE /* UserRepository.swift */,
+				2CE2BD2B248C19990064A8EE /* APIUserRepository.swift */,
+				2CE2BD2D248C1A5A0064A8EE /* LocalUserRepository.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +462,7 @@
 				2CDE758E2488FEA000949272 /* Threads.swift in Sources */,
 				2C57F177248A4132007FF471 /* UICollectionView+Additions.swift in Sources */,
 				2C57F16E248A2F91007FF471 /* User.swift in Sources */,
+				2CE2BD2C248C19990064A8EE /* APIUserRepository.swift in Sources */,
 				2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */,
 				2CDE75852488F9CE00949272 /* ExploreRouter.swift in Sources */,
 				2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */,
@@ -455,6 +473,7 @@
 				2CE2BD23248C106E0064A8EE /* APIBaseRepository.swift in Sources */,
 				2CDE75662488F63D00949272 /* MainWorker.swift in Sources */,
 				2CE2BD1D248C03E30064A8EE /* LocalPostRepository.swift in Sources */,
+				2CE2BD2E248C1A5A0064A8EE /* LocalUserRepository.swift in Sources */,
 				2CDE75832488F9CE00949272 /* ExplorePresenter.swift in Sources */,
 				2CDE75652488F63D00949272 /* MainPresenter.swift in Sources */,
 				2CDE759F2489149600949272 /* JSONPlaceholderManager.swift in Sources */,
@@ -470,6 +489,7 @@
 				2CDE75842488F9CE00949272 /* ExploreWorker.swift in Sources */,
 				2C57F170248A331E007FF471 /* UsersManager.swift in Sources */,
 				2CE2BD1F248C043E0064A8EE /* APIPostRepository.swift in Sources */,
+				2CE2BD2A248C19120064A8EE /* UserRepository.swift in Sources */,
 				2CE2BD1B248C03620064A8EE /* PostRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
