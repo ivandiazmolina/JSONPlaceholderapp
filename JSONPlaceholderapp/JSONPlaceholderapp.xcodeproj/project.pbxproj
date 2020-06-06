@@ -49,6 +49,10 @@
 		2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE759B24890E2600949272 /* UITableView+Additions.swift */; };
 		2CDE759F2489149600949272 /* JSONPlaceholderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE759E2489149600949272 /* JSONPlaceholderManager.swift */; };
 		2CDE75A2248916E700949272 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE75A1248916E700949272 /* Post.swift */; };
+		2CE2BD1B248C03620064A8EE /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1A248C03620064A8EE /* PostRepository.swift */; };
+		2CE2BD1D248C03E30064A8EE /* LocalPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */; };
+		2CE2BD1F248C043E0064A8EE /* APIPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1E248C043E0064A8EE /* APIPostRepository.swift */; };
+		2CE2BD23248C106E0064A8EE /* APIBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,10 @@
 		2CDE759B24890E2600949272 /* UITableView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		2CDE759E2489149600949272 /* JSONPlaceholderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderManager.swift; sourceTree = "<group>"; };
 		2CDE75A1248916E700949272 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2CE2BD1A248C03620064A8EE /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
+		2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPostRepository.swift; sourceTree = "<group>"; };
+		2CE2BD1E248C043E0064A8EE /* APIPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPostRepository.swift; sourceTree = "<group>"; };
+		2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBaseRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 				2CDE759D2489139A00949272 /* Networking */,
 				2CDE758B2488FDE900949272 /* Utils */,
 				2C57F168248A2693007FF471 /* Managers */,
+				2CE2BD19248C03470064A8EE /* Repositories */,
 				2CDE758C2488FDEF00949272 /* Extensions */,
 				2CDE75912488FFCA00949272 /* i18n */,
 				2CDE753B2488F2E000949272 /* AppDelegate.swift */,
@@ -300,6 +309,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		2CE2BD19248C03470064A8EE /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */,
+				2CE2BD24248C166F0064A8EE /* Posts */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2CE2BD24248C166F0064A8EE /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				2CE2BD1A248C03620064A8EE /* PostRepository.swift */,
+				2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */,
+				2CE2BD1E248C043E0064A8EE /* APIPostRepository.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,7 +452,9 @@
 				2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */,
 				2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */,
 				2CDE75782488F8D400949272 /* FeedViewController.swift in Sources */,
+				2CE2BD23248C106E0064A8EE /* APIBaseRepository.swift in Sources */,
 				2CDE75662488F63D00949272 /* MainWorker.swift in Sources */,
+				2CE2BD1D248C03E30064A8EE /* LocalPostRepository.swift in Sources */,
 				2CDE75832488F9CE00949272 /* ExplorePresenter.swift in Sources */,
 				2CDE75652488F63D00949272 /* MainPresenter.swift in Sources */,
 				2CDE759F2489149600949272 /* JSONPlaceholderManager.swift in Sources */,
@@ -439,6 +469,8 @@
 				2CDE75752488F8D400949272 /* FeedWorker.swift in Sources */,
 				2CDE75842488F9CE00949272 /* ExploreWorker.swift in Sources */,
 				2C57F170248A331E007FF471 /* UsersManager.swift in Sources */,
+				2CE2BD1F248C043E0064A8EE /* APIPostRepository.swift in Sources */,
+				2CE2BD1B248C03620064A8EE /* PostRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

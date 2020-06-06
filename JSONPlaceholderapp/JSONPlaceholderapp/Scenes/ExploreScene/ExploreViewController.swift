@@ -130,9 +130,9 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
 
 // MARK: MainDelegate
 
-extension FeedViewController: MainDelegate {
+extension ExploreViewController: MainDelegate {
    
-    func fetchedPosts(posts: [Post]) {
+    func fetchedUsers(users: [User]) {
         reloadData()
     }
 }

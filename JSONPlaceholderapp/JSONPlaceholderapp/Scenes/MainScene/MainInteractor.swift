@@ -37,7 +37,6 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
             guard error != nil else {
                 
                 //SUCESS
-                PostsManager.shared.setPosts(posts ?? [])
                 UsersManager.shared.setUsers(users ?? [])
                 
                 let response = Main.Models.Response(posts: posts, users: users)

@@ -18,23 +18,17 @@ class MainWorker {
     func getInicialData(completion: @escaping([Post]?, [User]?, String?) -> Void) {
         
         // VARS
-        var posts: [Post]?
-        var users: [User]?
+        var mPosts: [Post]?
+        var mUsers: [User]?
         var mError: String?
         let dispatchGroup = DispatchGroup()
+        let postRepository = PostRepository()
         
         // Get Posts
         dispatchGroup.enter()
-        JSONPlaceholderManager.shared.getPost() { (response) in
-            
-            switch response {
-            case .success(let result):
-                posts = result
-            case .failure(let error):
-                posts = []
-                mError = error
-            }
-            
+        postRepository.getPosts() { posts in
+            print(posts)
+            mPosts = posts
             dispatchGroup.leave()
         }
         
@@ -44,9 +38,9 @@ class MainWorker {
             
             switch response {
             case .success(let result):
-                users = result
+                mUsers = result
             case .failure(let error):
-                users = []
+                mUsers = []
                 mError = error
             }
             
@@ -57,12 +51,11 @@ class MainWorker {
         dispatchGroup.notify(queue: .main) {
             
             guard mError != nil else {
-                completion(posts, users, nil)
+                completion(mPosts, mUsers, nil)
                 return
             }
             
             completion([], [], "")
         }
     }
-    
 }
