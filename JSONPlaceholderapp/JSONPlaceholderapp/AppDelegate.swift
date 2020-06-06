@@ -14,13 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // Code to test a service
-//        JSONPlaceholderManager.shared.getUsers { (response) in
-//            print(response)
-//        }
-        
+        // Override point for customization after application launch.        
         return true
     }
 

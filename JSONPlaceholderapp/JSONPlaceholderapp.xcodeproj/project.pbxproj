@@ -47,7 +47,6 @@
 		2CDE75992489076300949272 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE75972489076300949272 /* FeedTableViewCell.swift */; };
 		2CDE759A2489076300949272 /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CDE75982489076300949272 /* FeedTableViewCell.xib */; };
 		2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE759B24890E2600949272 /* UITableView+Additions.swift */; };
-		2CDE759F2489149600949272 /* JSONPlaceholderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE759E2489149600949272 /* JSONPlaceholderManager.swift */; };
 		2CDE75A2248916E700949272 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE75A1248916E700949272 /* Post.swift */; };
 		2CE2BD1B248C03620064A8EE /* PostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1A248C03620064A8EE /* PostRepository.swift */; };
 		2CE2BD1D248C03E30064A8EE /* LocalPostRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */; };
@@ -113,7 +112,6 @@
 		2CDE75972489076300949272 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		2CDE75982489076300949272 /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		2CDE759B24890E2600949272 /* UITableView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
-		2CDE759E2489149600949272 /* JSONPlaceholderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONPlaceholderManager.swift; sourceTree = "<group>"; };
 		2CDE75A1248916E700949272 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2CE2BD1A248C03620064A8EE /* PostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRepository.swift; sourceTree = "<group>"; };
 		2CE2BD1C248C03E30064A8EE /* LocalPostRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPostRepository.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				2CDE75A0248916DD00949272 /* Models */,
-				2CDE759E2489149600949272 /* JSONPlaceholderManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -476,7 +473,6 @@
 				2CE2BD2E248C1A5A0064A8EE /* LocalUserRepository.swift in Sources */,
 				2CDE75832488F9CE00949272 /* ExplorePresenter.swift in Sources */,
 				2CDE75652488F63D00949272 /* MainPresenter.swift in Sources */,
-				2CDE759F2489149600949272 /* JSONPlaceholderManager.swift in Sources */,
 				2CDE75872488F9CE00949272 /* ExploreViewController.swift in Sources */,
 				2CDE75A2248916E700949272 /* Post.swift in Sources */,
 				2CDE75902488FF7000949272 /* String+Additions.swift in Sources */,
