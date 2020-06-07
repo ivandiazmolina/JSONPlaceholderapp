@@ -31,4 +31,7 @@ class APIBaseRepository {
     
     // MARK: Album
     internal let ALBUM_PHOTOS = BASE_URL + "/photos?albumId="
+    
+    // MARK: Post
+    internal let POST_COMMENTS = BASE_URL + "/comments?postId="
 }
