@@ -128,7 +128,8 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "routeToProfile", sender: indexPath)
+        interactor?.didSelectedItemAt(index: indexPath.row)
+//        performSegue(withIdentifier: "routeToProfile", sender: indexPath)
     }
     
 }

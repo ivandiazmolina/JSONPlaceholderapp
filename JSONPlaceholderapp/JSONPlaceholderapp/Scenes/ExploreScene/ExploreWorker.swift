@@ -13,4 +13,38 @@
 import UIKit
 
 class ExploreWorker {
+    
+    func getAlbumsAndTodos(for user: User, completion: @escaping([Album]?, [Todo]?, String?) -> Void) {
+        
+        // LETS and VARS
+        var mAlbums: [Album]?
+        var mTodos: [Todo]?
+        
+        let dispatchGroup = DispatchGroup()
+        
+        let albumRepository = AlbumRepository()
+        let todoRepository = TodoRepository()
+        
+        
+        // Get Albums
+        dispatchGroup.enter()
+        albumRepository.getAlbums(for: user) { (albums) in
+            print(albums)
+            mAlbums = albums
+            dispatchGroup.leave()
+        }
+        
+        // Get Todos
+        dispatchGroup.enter()
+        todoRepository.getTodos(for: user) { (todos) in
+            print(todos)
+            mTodos = todos
+            dispatchGroup.leave()
+        }
+
+        // DispatchGroup
+        dispatchGroup.notify(queue: .main) {
+            completion(mAlbums, mTodos, nil)
+        }
+    }
 }

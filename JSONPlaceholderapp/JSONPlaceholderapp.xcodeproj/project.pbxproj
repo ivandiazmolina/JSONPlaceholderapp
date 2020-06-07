@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,12 @@
 		2C57F174248A3E84007FF471 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */; };
 		2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */; };
 		2C57F177248A4132007FF471 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */; };
+		2C69AC30248CCF4C009B2E24 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */; };
 		2C69AC32248CCFA4009B2E24 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC31248CCFA4009B2E24 /* Todo.swift */; };
 		2C69AC34248CD02B009B2E24 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC33248CD02B009B2E24 /* Album.swift */; };
+		2C69AC36248CD187009B2E24 /* APITodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC35248CD187009B2E24 /* APITodoRepository.swift */; };
+		2C69AC38248CD419009B2E24 /* AlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC37248CD419009B2E24 /* AlbumRepository.swift */; };
+		2C69AC3A248CD422009B2E24 /* APIAlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC39248CD422009B2E24 /* APIAlbumRepository.swift */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -86,8 +90,12 @@
 		2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
+		2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
 		2C69AC31248CCFA4009B2E24 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		2C69AC33248CD02B009B2E24 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		2C69AC35248CD187009B2E24 /* APITodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITodoRepository.swift; sourceTree = "<group>"; };
+		2C69AC37248CD419009B2E24 /* AlbumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepository.swift; sourceTree = "<group>"; };
+		2C69AC39248CD422009B2E24 /* APIAlbumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAlbumRepository.swift; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +192,24 @@
 				2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2C69AC2D248CCF01009B2E24 /* Albums */ = {
+			isa = PBXGroup;
+			children = (
+				2C69AC37248CD419009B2E24 /* AlbumRepository.swift */,
+				2C69AC39248CD422009B2E24 /* APIAlbumRepository.swift */,
+			);
+			path = Albums;
+			sourceTree = "<group>";
+		};
+		2C69AC2E248CCF09009B2E24 /* Todos */ = {
+			isa = PBXGroup;
+			children = (
+				2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */,
+				2C69AC35248CD187009B2E24 /* APITodoRepository.swift */,
+			);
+			path = Todos;
 			sourceTree = "<group>";
 		};
 		2CDE752F2488F2E000949272 = {
@@ -602,11 +628,13 @@
 				2CE2BD2C248C19990064A8EE /* APIUserRepository.swift in Sources */,
 				2CE2BD46248C2ACC0064A8EE /* ProfileModels.swift in Sources */,
 				2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */,
+				2C69AC30248CCF4C009B2E24 /* TodoRepository.swift in Sources */,
 				2CDE75852488F9CE00949272 /* ExploreRouter.swift in Sources */,
 				2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */,
 				2CDE75952489007E00949272 /* Array+Additions.swift in Sources */,
 				2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */,
 				2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */,
+				2C69AC38248CD419009B2E24 /* AlbumRepository.swift in Sources */,
 				2C69AC34248CD02B009B2E24 /* Album.swift in Sources */,
 				2CE2BD43248C2ACC0064A8EE /* ProfilePresenter.swift in Sources */,
 				2CDE75782488F8D400949272 /* FeedViewController.swift in Sources */,
@@ -619,6 +647,7 @@
 				2CDE75872488F9CE00949272 /* ExploreViewController.swift in Sources */,
 				2CDE75A2248916E700949272 /* Post.swift in Sources */,
 				2CDE75902488FF7000949272 /* String+Additions.swift in Sources */,
+				2C69AC36248CD187009B2E24 /* APITodoRepository.swift in Sources */,
 				2CE2BD44248C2ACC0064A8EE /* ProfileWorker.swift in Sources */,
 				2CDE756A2488F63D00949272 /* MainInteractor.swift in Sources */,
 				2CDE75682488F63D00949272 /* MainModels.swift in Sources */,
@@ -631,6 +660,7 @@
 				2C69AC32248CCFA4009B2E24 /* Todo.swift in Sources */,
 				2CE2BD1F248C043E0064A8EE /* APIPostRepository.swift in Sources */,
 				2CE2BD2A248C19120064A8EE /* UserRepository.swift in Sources */,
+				2C69AC3A248CD422009B2E24 /* APIAlbumRepository.swift in Sources */,
 				2CE2BD1B248C03620064A8EE /* PostRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

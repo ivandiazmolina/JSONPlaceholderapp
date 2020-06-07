@@ -19,7 +19,13 @@ enum APIRequestResult<U> {
 
 class APIBaseRepository {
     
+    // MARK: Common
     static internal let BASE_URL = "https://jsonplaceholder.typicode.com"
+    
     internal let POSTS_URL = BASE_URL + "/posts"
+    
+    // MARK: User
     internal let USERS_URL = BASE_URL + "/users"
+    internal let USER_ALBUMS = BASE_URL + "/albums?userId="
+    internal let USER_TODOS = BASE_URL + "/todos?userId="
 }

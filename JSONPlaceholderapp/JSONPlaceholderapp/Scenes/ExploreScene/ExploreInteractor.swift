@@ -14,6 +14,7 @@ import UIKit
 
 protocol ExploreBusinessLogic {
     func setupView()
+    func didSelectedItemAt(index: Int)
     
     // MARK: Users
     func setUsers(_ users: [User])
@@ -23,18 +24,31 @@ protocol ExploreBusinessLogic {
 
 protocol ExploreDataStore {
     var users: [User]? { get set }
+    var selectedUser: User? { get set }
 }
 
 class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
+    
     var presenter: ExplorePresentationLogic?
     var worker: ExploreWorker?
     
     var users: [User]?
+    var selectedUser: User?
     
     func setupView() {
         worker = ExploreWorker()
         let response: Explore.Models.Response = Explore.Models.Response()
         presenter?.setupView(response: response)
+    }
+    
+    func didSelectedItemAt(index: Int) {
+        guard let user = users?.getElement(index) else { return }
+        
+        worker?.getAlbumsAndTodos(for: user, completion: { (albums, todos, error) in
+            print(albums)
+            print(todos)
+            print(error)
+        })
     }
     
     // MARK: Users
