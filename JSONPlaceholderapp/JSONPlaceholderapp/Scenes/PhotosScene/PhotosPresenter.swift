@@ -1,5 +1,5 @@
 //
-//  PhotosScenePresenter.swift
+//  PhotosPresenter.swift
 //  JSONPlaceholderapp
 //
 //  Created by Iván Díaz Molina on 07/06/2020.
@@ -12,11 +12,15 @@
 
 import UIKit
 
-protocol PhotosScenePresentationLogic {
-    func presentSomething(response: PhotosScene.Something.Response)
+protocol PhotosPresentationLogic {
+    func setupView()
 }
 
-class PhotosScenePresenter: PhotosScenePresentationLogic {
+class PhotosPresenter: PhotosPresentationLogic {
     
-    weak var viewController: PhotosSceneDisplayLogic?
+    weak var viewController: PhotosDisplayLogic?
+    
+    func setupView() {
+        viewController?.setupView()
+    }
 }

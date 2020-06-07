@@ -15,6 +15,7 @@ import UIKit
 enum Event: String {
     case onTouchAlbums
     case onTouchTodos
+    case didSelectedUser
 }
 
 enum Profile {
@@ -26,6 +27,7 @@ enum Profile {
         }
         struct Response {
             var user: User?
+            var photos: [Photo]?
         }
         struct ViewModel {
             var name: String?

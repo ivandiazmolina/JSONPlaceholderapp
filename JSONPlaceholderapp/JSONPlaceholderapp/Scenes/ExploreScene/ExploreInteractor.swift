@@ -61,7 +61,7 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
                 self?.todos = todos
                 
                 self?.presenter?.displayLoading(false)
-                self?.presenter?.displayAlbumsAndTodos()
+                self?.presenter?.presentAlbumsAndTodos()
             })
         }
     }

@@ -1,5 +1,5 @@
 //
-//  APIAlbumRepository.swift
+//  APIPhotoRepository.swift
 //  JSONPlaceholderapp
 //
 //  Created by Iván Díaz Molina on 07/06/2020.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-class APIAlbumRepository: APIBaseRepository, AlbumRepositoryProtocol {
+class APIPhotoRepository: APIBaseRepository, PhotoRepositoryProtocol {
     
-    func getAlbums(for user: User, completion: @escaping ([Album]) -> Void) {
+    func getPhotos(for album: Album, completion: @escaping ([Photo]) -> Void) {
         
         // 1. try to init the URL
-        guard let url = URL(string: String(format: "%@%@", USER_ALBUMS, "\(user.id ?? 0)")) else {
+        guard let url = URL(string: String(format: "%@%@", ALBUM_PHOTOS, "\(album.id ?? 0)")) else {
             completion([])
             return
         }
@@ -31,8 +31,8 @@ class APIAlbumRepository: APIBaseRepository, AlbumRepositoryProtocol {
                     }
                     
                     do {
-                        let decodeAlbums = try JSONDecoder().decode([Album].self, from: data)
-                        completion(decodeAlbums)
+                        let decodePhotos = try JSONDecoder().decode([Photo].self, from: data)
+                        completion(decodePhotos)
                         return
                     } catch {
                         completion([])

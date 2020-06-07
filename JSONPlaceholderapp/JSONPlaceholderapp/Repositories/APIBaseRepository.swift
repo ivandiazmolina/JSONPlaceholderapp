@@ -28,4 +28,7 @@ class APIBaseRepository {
     internal let USERS_URL = BASE_URL + "/users"
     internal let USER_ALBUMS = BASE_URL + "/albums?userId="
     internal let USER_TODOS = BASE_URL + "/todos?userId="
+    
+    // MARK: Album
+    internal let ALBUM_PHOTOS = BASE_URL + "/photos?albumId="
 }

@@ -27,7 +27,11 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
     // MARK: IBOutlets
     @IBOutlet weak var exploreCollectionView: UICollectionView!
     
+    // LETS AND VARS
     let CELL_SIZE: CGFloat = 220
+    let CELL_PADDING: CGFloat = 10
+    let SECTION_INSET: CGFloat = 5
+    let COLUMNS: CGFloat = 2
     
     // MARK: Object lifecycle
     
@@ -86,8 +90,8 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
         exploreCollectionView.dataSource = self
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width/2-10, height: CELL_SIZE)
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        flowLayout.itemSize = CGSize(width: UIScreen.main.bounds.width/COLUMNS - CELL_PADDING, height: CELL_SIZE)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: SECTION_INSET, bottom: 0, right: SECTION_INSET)
         flowLayout.minimumInteritemSpacing = 0.0
         exploreCollectionView.collectionViewLayout = flowLayout
     }
@@ -117,7 +121,7 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
 extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return interactor?.getUsersCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

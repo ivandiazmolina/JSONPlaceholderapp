@@ -14,8 +14,10 @@ import UIKit
 
 protocol ProfilePresentationLogic {
     func setupView(response: Profile.Models.Response)
+    func displayLoading(_ show: Bool)
     func presentAlbums()
     func presentTodos()
+    func presentPhotos()
 }
 
 class ProfilePresenter: ProfilePresentationLogic {
@@ -35,11 +37,19 @@ class ProfilePresenter: ProfilePresentationLogic {
         viewController?.setupView(viewModel: viewModel)
     }
     
+    func displayLoading(_ show: Bool) {
+        viewController?.displayLoading(show)
+    }
+    
     func presentAlbums() {
         viewController?.displayAlbums()
     }
     
     func presentTodos() {
         viewController?.displayTodos()
+    }
+    
+    func presentPhotos() {
+        viewController?.displayPhotos()
     }
 }

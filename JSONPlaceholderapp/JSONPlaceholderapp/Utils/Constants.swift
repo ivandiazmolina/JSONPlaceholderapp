@@ -14,8 +14,8 @@ struct Constants {
         static let feed: String = "FeedStoryboard"
         static let explore: String = "ExploreStoryboard"
         static let profile: String = "ProfileStoryboard"
+        static let photos: String = "PhotosStoryboard"
     }
-    
     
     struct Avatar {
         static let bender: String = "bender"
@@ -24,6 +24,5 @@ struct Constants {
         static let mario: String = "ironman"
         static let stormtrooper: String = "stormtrooper"
     }
-    
 }
 

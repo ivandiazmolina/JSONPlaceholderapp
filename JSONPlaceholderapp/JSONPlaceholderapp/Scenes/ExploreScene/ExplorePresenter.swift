@@ -15,7 +15,7 @@ import UIKit
 protocol ExplorePresentationLogic {
     func setupView(response: Explore.Models.Response)
     func displayLoading(_ show: Bool)
-    func displayAlbumsAndTodos()
+    func presentAlbumsAndTodos()
 }
 
 class ExplorePresenter: ExplorePresentationLogic {
@@ -31,7 +31,7 @@ class ExplorePresenter: ExplorePresentationLogic {
         viewController?.displayLoading(show)
     }
     
-    func displayAlbumsAndTodos() {
+    func presentAlbumsAndTodos() {
         viewController?.displayAlbumsAndTodos()
     }
 }

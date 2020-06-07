@@ -20,10 +20,10 @@ class AlbumRepository {
     /// - Parameter completion: completion
     func getAlbums(for user: User, completion: @escaping ([Album]) -> Void) {
         
-        // 3. intento obtener los albums de la API
+        // 1. intento obtener los albums de la API
         apiRepository.getAlbums(for: user) { (albums) in
             
-            // 5. devuelvo los albums
+            // 2. devuelvo los albums
             completion(albums)
         }
     }

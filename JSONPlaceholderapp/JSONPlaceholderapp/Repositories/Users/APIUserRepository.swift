@@ -18,23 +18,25 @@ class APIUserRepository: APIBaseRepository, UserRepositoryProtocol {
         }
 
         // 3. execute the request
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            ui {
-                guard let data = data else {
-                    completion([])
-                    return
+        background {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                
+                ui {
+                    guard let data = data else {
+                        completion([])
+                        return
+                    }
+                                    
+                    do {
+                        let decodeUsers = try JSONDecoder().decode([User].self, from: data)
+                        completion(decodeUsers)
+                        return
+                    } catch {
+                        completion([])
+                        return
+                    }
                 }
-                                
-                do {
-                    let decodeUsers = try JSONDecoder().decode([User].self, from: data)
-                    completion(decodeUsers)
-                    return
-                } catch {
-                    completion([])
-                    return
-                }
-            }
-        }.resume()
+            }.resume()
+        }
     }
 }

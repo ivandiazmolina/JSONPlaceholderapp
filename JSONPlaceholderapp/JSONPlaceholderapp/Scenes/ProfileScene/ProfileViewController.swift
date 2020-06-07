@@ -14,8 +14,10 @@ import UIKit
 
 protocol ProfileDisplayLogic: class {
     func setupView(viewModel: Profile.Models.ViewModel)
+    func displayLoading(_ show: Bool)
     func displayAlbums()
     func displayTodos()
+    func displayPhotos()
 }
 
 class ProfileViewController: BaseViewController, ProfileDisplayLogic {
@@ -114,6 +116,10 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
         }
     }
     
+    func displayLoading(_ show: Bool) {
+        show ? showLoading() : dismissLoading()
+    }
+    
     func displayAlbums() {
         
         ui { [weak self] in
@@ -127,6 +133,10 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
             self?.albumsTableView.isHidden = true
             self?.todosTableView.isHidden = false
         }
+    }
+    
+    func displayPhotos() {
+        router?.routeToPhotos(segue: nil)
     }
     
     // MARK: Private methods
@@ -171,7 +181,13 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return interactor?.getAlbumsCount() ?? 0
+        
+        switch tableView {
+        case albumsTableView:
+            return interactor?.getAlbumsCount() ?? 0
+        default:
+            return interactor?.getTodosCount() ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -186,5 +202,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CELL_SIZE
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch tableView {
+        case albumsTableView:
+            interactor?.didSelectedAlbumAt(index: indexPath.row)
+        default:
+            print("Todos are not clickable")
+            return
+        }
+        
     }
 }

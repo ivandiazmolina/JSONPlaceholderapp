@@ -19,23 +19,25 @@ class APITodoRepository: APIBaseRepository, TodoRepositoryProtocol {
         }
         
         // 2. execute the request
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            ui {
-                guard let data = data else {
-                    completion([])
-                    return
-                }
+        background {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
                 
-                do {
-                    let decodeTodos = try JSONDecoder().decode([Todo].self, from: data)
-                    completion(decodeTodos)
-                    return
-                } catch {
-                    completion([])
-                    return
+                ui {
+                    guard let data = data else {
+                        completion([])
+                        return
+                    }
+                    
+                    do {
+                        let decodeTodos = try JSONDecoder().decode([Todo].self, from: data)
+                        completion(decodeTodos)
+                        return
+                    } catch {
+                        completion([])
+                        return
+                    }
                 }
-            }
-        }.resume()
+            }.resume()
+        }
     }
 }

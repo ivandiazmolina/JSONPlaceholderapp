@@ -19,23 +19,25 @@ class APIPostRepository: APIBaseRepository, PostRepositoryProtocol {
         }
         
         // 4. execute the request
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            ui {
-                guard let data = data else {
-                    completion([])
-                    return
-                }
+        background {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
                 
-                do {
-                    let decodePosts = try JSONDecoder().decode([Post].self, from: data)
-                    completion(decodePosts)
-                    return
-                } catch {
-                    completion([])
-                    return
+                ui {
+                    guard let data = data else {
+                        completion([])
+                        return
+                    }
+                    
+                    do {
+                        let decodePosts = try JSONDecoder().decode([Post].self, from: data)
+                        completion(decodePosts)
+                        return
+                    } catch {
+                        completion([])
+                        return
+                    }
                 }
-            }
-        }.resume()
+            }.resume()
+        }
     }
 }

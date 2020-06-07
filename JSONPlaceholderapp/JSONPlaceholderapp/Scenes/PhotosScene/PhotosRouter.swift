@@ -1,5 +1,5 @@
 //
-//  PhotosSceneRouter.swift
+//  PhotosRouter.swift
 //  JSONPlaceholderapp
 //
 //  Created by Iván Díaz Molina on 07/06/2020.
@@ -12,14 +12,15 @@
 
 import UIKit
 
-@objc protocol PhotosSceneRoutingLogic {
+@objc protocol PhotosRoutingLogic {
 }
 
-protocol PhotosSceneDataPassing {
-    var dataStore: PhotosSceneDataStore? { get }
+protocol PhotosDataPassing {
+    var dataStore: PhotosDataStore? { get }
 }
 
-class PhotosSceneRouter: NSObject, PhotosSceneRoutingLogic, PhotosSceneDataPassing {
-    weak var viewController: PhotosSceneViewController?
-    var dataStore: PhotosSceneDataStore?
+class PhotosRouter: NSObject, PhotosRoutingLogic, PhotosDataPassing {
+    weak var viewController: PhotosViewController?
+    var dataStore: PhotosDataStore?
 }
+

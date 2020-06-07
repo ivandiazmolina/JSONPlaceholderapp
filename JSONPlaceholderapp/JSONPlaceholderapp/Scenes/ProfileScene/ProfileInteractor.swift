@@ -19,6 +19,7 @@ protocol ProfileBusinessLogic {
     // MARK: Album
     func getAlbumsCount() -> Int
     func getAlbumCellFor(index: Int) -> Profile.Models.AlbumCellModel
+    func didSelectedAlbumAt(index: Int)
     
     // MARK: Todo
     func getTodosCount() -> Int
@@ -29,7 +30,9 @@ protocol ProfileBusinessLogic {
 protocol ProfileDataStore {
     var user: User? { get set }
     var albums: [Album]? { get set }
+    var selectedAlbum: Album? { get set }
     var todos: [Todo]? { get set }
+    var photos: [Photo]? { get set }
 }
 
 class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
@@ -39,9 +42,12 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
     
     var user: User?
     var albums: [Album]?
+    var selectedAlbum: Album?
     var todos: [Todo]?
+    var photos: [Photo]?
     
     func setupView() {
+        worker = ProfileWorker()
         let response = Profile.Models.Response(user: user)
         presenter?.setupView(response: response)
     }
@@ -56,6 +62,26 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
         case .onTouchTodos:
             presenter?.presentTodos()
         default: break
+        }
+    }
+    
+    func didSelectedAlbumAt(index: Int) {
+        
+        guard let album = albums?.getElement(index) else { return }
+        
+        selectedAlbum = album
+        
+        presenter?.displayLoading(true)
+
+        let deadlineTime = DispatchTime.now() + 1
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
+            self?.worker?.getPhotos(for: album, completion: { [weak self] (photos, error) in
+
+                self?.photos = photos
+
+                self?.presenter?.displayLoading(false)
+                self?.presenter?.presentPhotos()
+            })
         }
     }
     

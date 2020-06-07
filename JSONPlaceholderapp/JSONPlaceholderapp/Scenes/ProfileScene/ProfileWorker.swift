@@ -13,4 +13,17 @@
 import UIKit
 
 class ProfileWorker {
+    
+    func getPhotos(for album: Album, completion: @escaping([Photo]?, String?) -> Void) {
+        
+        // LETS and VARS
+        let photosRepository = PhotoRepository()
+        
+        // Get Photos
+        photosRepository.getPhotos(for: album) { (photos) in
+            print(photos)
+            completion(photos, nil)
+        }
+    }
+    
 }

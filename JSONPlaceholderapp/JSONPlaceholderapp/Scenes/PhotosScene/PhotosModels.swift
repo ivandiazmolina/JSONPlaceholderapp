@@ -1,5 +1,5 @@
 //
-//  PhotosSceneWorker.swift
+//  PhotosModels.swift
 //  JSONPlaceholderapp
 //
 //  Created by Iván Díaz Molina on 07/06/2020.
@@ -12,5 +12,19 @@
 
 import UIKit
 
-class PhotosSceneWorker {
+enum Photos
+{
+    // MARK: Use cases
+    
+    enum Models {
+        struct Request {
+        }
+        struct Response {
+        }
+        struct ViewModel {
+        }
+        struct PhotoCellModel {
+            var photo: Photo?
+        }
+    }
 }
