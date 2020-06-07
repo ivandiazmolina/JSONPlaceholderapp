@@ -13,12 +13,27 @@
 import UIKit
 
 protocol ProfileBusinessLogic {
+    func setupView()
 }
 
 protocol ProfileDataStore {
+    var user: User? { get set }
+    var albums: [Album]? { get set }
+    var todos: [Todo]? { get set }
 }
 
 class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
+
     var presenter: ProfilePresentationLogic?
     var worker: ProfileWorker?
+    
+    var user: User?
+    var albums: [Album]?
+    var todos: [Todo]?
+    
+    func setupView() {
+        let response = Profile.Models.Response(user: user)
+        presenter?.setupView(response: response)
+    }
+    
 }

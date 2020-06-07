@@ -28,15 +28,15 @@ class ExploreRouter: NSObject, ExploreRoutingLogic, ExploreDataPassing {
     // MARK: Routing
     
     func routeToProfile(segue: UIStoryboardSegue?) {
-        if let segue = segue {
-            let destinationVC = segue.destination as! ProfileViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToProfile(source: dataStore!, destination: &destinationDS)
-        } else {
-            let storyboard = UIStoryboard(name: "ProfileStoryboard", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToProfile(source: dataStore!, destination: &destinationDS)
+        
+        let storyboard = UIStoryboard(name: Constants.Storyboard.profile, bundle: nil)
+        
+        if let segue = segue, let destinationVC = segue.destination as? ProfileViewController {
+            var destinationDS = destinationVC.router?.dataStore
+            passDataToProfile(source: dataStore, destination: &destinationDS)
+        } else if let destinationVC = storyboard.instantiateInitialViewController() as? ProfileViewController {
+            var destinationDS = destinationVC.router?.dataStore
+            passDataToProfile(source: dataStore, destination: &destinationDS)
             navigateToProfile(source: viewController!, destination: destinationVC)
         }
     }
@@ -49,7 +49,9 @@ class ExploreRouter: NSObject, ExploreRoutingLogic, ExploreDataPassing {
     
     // MARK: Passing data
     
-    func passDataToProfile(source: ExploreDataStore, destination: inout ProfileDataStore) {
-//        destination.name = source.name
+    func passDataToProfile(source: ExploreDataStore?, destination: inout ProfileDataStore?) {
+        destination?.user = source?.selectedUser
+        destination?.albums = source?.albums
+        destination?.todos = source?.todos
     }
 }

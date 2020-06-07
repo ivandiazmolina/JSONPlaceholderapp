@@ -13,6 +13,7 @@
 import UIKit
 
 protocol ProfileDisplayLogic: class {
+    func setupView(viewModel: Profile.Models.ViewModel)
 }
 
 class ProfileViewController: BaseViewController, ProfileDisplayLogic {
@@ -22,7 +23,8 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     
     // MARK: IBOutlets
     @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var usernameLabel: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     // MARK: Object lifecycle
     
@@ -75,5 +77,14 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.setupView()
+    }
+    
+    func setupView(viewModel: Profile.Models.ViewModel) {
+        
+        ui { [weak self] in
+            self?.nameLabel.text = viewModel.name
+            self?.usernameLabel.text = viewModel.username
+        }
     }
 }

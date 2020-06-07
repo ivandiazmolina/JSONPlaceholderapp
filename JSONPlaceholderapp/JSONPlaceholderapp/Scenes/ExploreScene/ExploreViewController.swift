@@ -14,7 +14,9 @@ import UIKit
 
 protocol ExploreDisplayLogic: class {
     func setupView(viewModel: Explore.Models.ViewModel)
+    func displayLoading(_ show: Bool)
     func displayUsers(viewModel: Explore.Models.ViewModel)
+    func displayAlbumsAndTodos()
 }
 
 class ExploreViewController: BaseViewController, ExploreDisplayLogic {
@@ -52,9 +54,6 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
-        
-        
-        
     }
     
     // MARK: Routing
@@ -90,10 +89,18 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
         exploreCollectionView.collectionViewLayout = flowLayout
     }
     
+    func displayLoading(_ show: Bool) {
+        show ? showLoading() : dismissLoading()
+    }
+    
     func displayUsers(viewModel: Explore.Models.ViewModel) {
         print(viewModel)
         
         reloadData()
+    }
+    
+    func displayAlbumsAndTodos() {
+        router?.routeToProfile(segue: nil)
     }
     
     func reloadData() {
@@ -129,7 +136,6 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         interactor?.didSelectedItemAt(index: indexPath.row)
-//        performSegue(withIdentifier: "routeToProfile", sender: indexPath)
     }
     
 }

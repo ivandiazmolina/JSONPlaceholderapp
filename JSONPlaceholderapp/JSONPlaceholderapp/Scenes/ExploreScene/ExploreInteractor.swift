@@ -25,6 +25,8 @@ protocol ExploreBusinessLogic {
 protocol ExploreDataStore {
     var users: [User]? { get set }
     var selectedUser: User? { get set }
+    var albums: [Album]? { get set }
+    var todos: [Todo]? { get set }
 }
 
 class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
@@ -34,6 +36,8 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
     
     var users: [User]?
     var selectedUser: User?
+    var albums: [Album]?
+    var todos: [Todo]?
     
     func setupView() {
         worker = ExploreWorker()
@@ -42,13 +46,20 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
     }
     
     func didSelectedItemAt(index: Int) {
+        
         guard let user = users?.getElement(index) else { return }
         
-        worker?.getAlbumsAndTodos(for: user, completion: { (albums, todos, error) in
-            print(albums)
-            print(todos)
-            print(error)
-        })
+        selectedUser = user
+        
+        presenter?.displayLoading(true)
+        
+        let deadlineTime = DispatchTime.now() + 1.5
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
+            self?.worker?.getAlbumsAndTodos(for: user, completion: { [weak self] (albums, todos, error) in
+                self?.presenter?.displayLoading(false)
+                self?.presenter?.displayAlbumsAndTodos()
+            })
+        }
     }
     
     // MARK: Users

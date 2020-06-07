@@ -19,6 +19,7 @@
 		2C69AC36248CD187009B2E24 /* APITodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC35248CD187009B2E24 /* APITodoRepository.swift */; };
 		2C69AC38248CD419009B2E24 /* AlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC37248CD419009B2E24 /* AlbumRepository.swift */; };
 		2C69AC3A248CD422009B2E24 /* APIAlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC39248CD422009B2E24 /* APIAlbumRepository.swift */; };
+		2C69AC3E248CE052009B2E24 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC3D248CE052009B2E24 /* Constants.swift */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -96,6 +97,7 @@
 		2C69AC35248CD187009B2E24 /* APITodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITodoRepository.swift; sourceTree = "<group>"; };
 		2C69AC37248CD419009B2E24 /* AlbumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepository.swift; sourceTree = "<group>"; };
 		2C69AC39248CD422009B2E24 /* APIAlbumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAlbumRepository.swift; sourceTree = "<group>"; };
+		2C69AC3D248CE052009B2E24 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				2CDE758D2488FEA000949272 /* Threads.swift */,
+				2C69AC3D248CE052009B2E24 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				2C57F16C248A2AB7007FF471 /* PostsManager.swift in Sources */,
 				2CDE75772488F8D400949272 /* FeedModels.swift in Sources */,
 				2CE2BD47248C2ACC0064A8EE /* ProfileViewController.swift in Sources */,
+				2C69AC3E248CE052009B2E24 /* Constants.swift in Sources */,
 				2CE2BD48248C2ACC0064A8EE /* ProfileInteractor.swift in Sources */,
 				2CE2BD45248C2ACC0064A8EE /* ProfileRouter.swift in Sources */,
 				2CDE75992489076300949272 /* FeedTableViewCell.swift in Sources */,
