@@ -13,6 +13,7 @@ struct User: Codable {
     var name: String?
     var username: String?
     var email: String?
+    var website: String?
     var avatar: String?
     
     init(_ data: Data) throws {

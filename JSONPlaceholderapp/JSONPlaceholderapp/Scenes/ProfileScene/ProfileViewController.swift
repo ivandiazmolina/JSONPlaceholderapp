@@ -32,6 +32,7 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var websiteLabel: UILabel!
     @IBOutlet weak var albumsTableView: UITableView!
     @IBOutlet weak var todosTableView: UITableView!
     
@@ -109,6 +110,7 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
         ui { [weak self] in
             self?.nameLabel.text = viewModel.name
             self?.usernameLabel.text = viewModel.username
+            self?.websiteLabel.text = viewModel.website
             
             if let avatar = viewModel.avatar {
                 self?.avatarImageView.image = avatar

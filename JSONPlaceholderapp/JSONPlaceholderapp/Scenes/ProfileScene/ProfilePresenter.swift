@@ -33,7 +33,7 @@ class ProfilePresenter: ProfilePresentationLogic {
             avatar = image
         }
         
-        let viewModel = Profile.Models.ViewModel(name: response.user?.name, username: username, avatar: avatar)
+        let viewModel = Profile.Models.ViewModel(name: response.user?.name, username: username, avatar: avatar, website: response.user?.website)
         viewController?.setupView(viewModel: viewModel)
     }
     
