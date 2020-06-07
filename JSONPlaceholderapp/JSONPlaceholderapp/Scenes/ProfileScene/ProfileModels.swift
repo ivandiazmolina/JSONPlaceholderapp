@@ -30,6 +30,7 @@ enum Profile {
         struct ViewModel {
             var name: String?
             var username: String?
+            var avatar: UIImage?
         }
         struct AlbumCellModel {
             var album: Album?

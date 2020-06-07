@@ -25,8 +25,13 @@ class ProfilePresenter: ProfilePresentationLogic {
     func setupView(response: Profile.Models.Response) {
         
         let username = String(format: "@%@", response.user?.username ?? "")
+        var avatar: UIImage?
         
-        let viewModel = Profile.Models.ViewModel(name: response.user?.name, username: username)
+        if let image = UIImage(named: response.user?.avatar ?? "") {
+            avatar = image
+        }
+        
+        let viewModel = Profile.Models.ViewModel(name: response.user?.name, username: username, avatar: avatar)
         viewController?.setupView(viewModel: viewModel)
     }
     

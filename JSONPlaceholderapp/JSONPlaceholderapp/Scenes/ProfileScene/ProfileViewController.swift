@@ -107,6 +107,10 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
         ui { [weak self] in
             self?.nameLabel.text = viewModel.name
             self?.usernameLabel.text = viewModel.username
+            
+            if let avatar = viewModel.avatar {
+                self?.avatarImageView.image = avatar
+            }
         }
     }
     
