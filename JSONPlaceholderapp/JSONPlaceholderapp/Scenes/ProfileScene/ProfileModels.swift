@@ -25,5 +25,11 @@ enum Profile {
             var name: String?
             var username: String?
         }
+        struct AlbumCellModel {
+            var album: Album?
+        }
+        struct TodoCellModel {
+            var todo: Todo?
+        }
     }
 }

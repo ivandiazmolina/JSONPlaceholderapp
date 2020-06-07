@@ -56,6 +56,10 @@ class ExploreInteractor: ExploreBusinessLogic, ExploreDataStore {
         let deadlineTime = DispatchTime.now() + 1.5
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
             self?.worker?.getAlbumsAndTodos(for: user, completion: { [weak self] (albums, todos, error) in
+                
+                self?.albums = albums
+                self?.todos = todos
+                
                 self?.presenter?.displayLoading(false)
                 self?.presenter?.displayAlbumsAndTodos()
             })

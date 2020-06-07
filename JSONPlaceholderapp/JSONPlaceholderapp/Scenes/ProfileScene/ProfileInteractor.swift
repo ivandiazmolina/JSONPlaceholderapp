@@ -14,6 +14,15 @@ import UIKit
 
 protocol ProfileBusinessLogic {
     func setupView()
+    
+    // MARK: Album
+    func getAlbumsCount() -> Int
+    func getAlbumCellFor(index: Int) -> Profile.Models.AlbumCellModel
+    
+    // MARK: Todo
+    func getTodosCount() -> Int
+    func getTodoCellFor(index: Int) -> Profile.Models.TodoCellModel
+    
 }
 
 protocol ProfileDataStore {
@@ -36,4 +45,25 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
         presenter?.setupView(response: response)
     }
     
+    // MARK: Albums
+    
+    func getAlbumsCount() -> Int {
+        return albums?.count ?? 0
+    }
+    
+    func getAlbumCellFor(index: Int) -> Profile.Models.AlbumCellModel {
+        guard let album = albums?.getElement(index) else { return Profile.Models.AlbumCellModel() }
+        return Profile.Models.AlbumCellModel(album: album)
+    }
+    
+    // MARK: Todos
+    
+    func getTodosCount() -> Int {
+        return todos?.count ?? 0
+    }
+    
+    func getTodoCellFor(index: Int) -> Profile.Models.TodoCellModel {
+        guard let todo = todos?.getElement(index) else { return Profile.Models.TodoCellModel() }
+        return Profile.Models.TodoCellModel(todo: todo)
+    }
 }

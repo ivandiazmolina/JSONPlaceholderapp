@@ -24,7 +24,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zCF-5V-YMN">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="348.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT5-FF-t31">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT5-FF-t31" userLabel="headerStack">
                                                         <rect key="frame" x="0.0" y="0.0" width="162" height="120"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="YeU-sJ-vzs">
@@ -48,7 +48,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EdK-vN-Yc0">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="EdK-vN-Yc0" userLabel="buttonsStack">
                                                         <rect key="frame" x="0.0" y="172.5" width="382" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="umy-BX-LZo">
@@ -67,16 +67,16 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3A-2M-ceq">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3A-2M-ceq" userLabel="contentStack">
                                                         <rect key="frame" x="0.0" y="218.5" width="382" height="130"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Jg-cd-wYv">
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rkz-0u-klM" customClass="IntrinsicHeightTableView" customModule="JSONPlaceholderapp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="130"/>
-                                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" priority="250" constant="130" id="tOo-wW-fnZ"/>
+                                                                    <constraint firstAttribute="height" priority="250" constant="130" placeholder="YES" id="7Qv-no-oWz"/>
                                                                 </constraints>
-                                                            </view>
+                                                            </tableView>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGF-xQ-7LO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="130"/>
                                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,7 +86,7 @@
                                                             </view>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="8Jg-cd-wYv" firstAttribute="width" secondItem="S3A-2M-ceq" secondAttribute="width" id="Xxy-So-k7e"/>
+                                                            <constraint firstItem="rkz-0u-klM" firstAttribute="width" secondItem="S3A-2M-ceq" secondAttribute="width" id="nid-Ev-fFF"/>
                                                             <constraint firstItem="JGF-xQ-7LO" firstAttribute="width" secondItem="S3A-2M-ceq" secondAttribute="width" id="p4a-iN-E4j"/>
                                                         </constraints>
                                                     </stackView>
@@ -127,6 +127,7 @@
                         <viewLayoutGuide key="safeArea" id="YP4-ia-G2L"/>
                     </view>
                     <connections>
+                        <outlet property="albumsTableView" destination="rkz-0u-klM" id="rRj-ii-Iw9"/>
                         <outlet property="avatarImageView" destination="YeU-sJ-vzs" id="ipu-HY-2sR"/>
                         <outlet property="nameLabel" destination="eBu-Wc-UcM" id="dct-XB-VSJ"/>
                         <outlet property="usernameLabel" destination="gDz-8p-ac7" id="1f6-tz-Da4"/>

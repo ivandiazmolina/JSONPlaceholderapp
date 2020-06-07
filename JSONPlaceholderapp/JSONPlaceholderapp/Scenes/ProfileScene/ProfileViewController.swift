@@ -25,6 +25,7 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var albumsTableView: UITableView!
     
     // MARK: Object lifecycle
     
@@ -82,9 +83,40 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     
     func setupView(viewModel: Profile.Models.ViewModel) {
         
+        // TableView
+        albumsTableView.register(AlbumTableViewCell.cellIdentifier)
+        albumsTableView.delegate = self
+        albumsTableView.dataSource = self
+        
         ui { [weak self] in
             self?.nameLabel.text = viewModel.name
             self?.usernameLabel.text = viewModel.username
         }
+    }
+}
+
+// MARK: UITableviewDelegate and UITableViewDataSource
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return interactor?.getAlbumsCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AlbumTableViewCell.cellIdentifier) as? AlbumTableViewCell else {
+            print("Error to cast TableViewCell to AlbumTableViewCell")
+            return UITableViewCell()
+        }
+        
+        guard let data = interactor?.getAlbumCellFor(index: indexPath.row) else {
+            print("Error to get AlbumTableViewCell from index")
+            return UITableViewCell()
+        }
+        
+        cell.updateUI(model: data)
+        
+        return cell
     }
 }
