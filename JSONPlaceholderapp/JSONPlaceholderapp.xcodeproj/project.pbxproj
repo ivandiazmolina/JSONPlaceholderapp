@@ -17,6 +17,10 @@
 		2C67A3B1248D401000D2E2DE /* ProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AD248D401000D2E2DE /* ProfileInteractorTests.swift */; };
 		2C67A3B2248D401000D2E2DE /* ProfileWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AE248D401000D2E2DE /* ProfileWorkerTests.swift */; };
 		2C67A3B3248D401000D2E2DE /* ProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AF248D401000D2E2DE /* ProfilePresenterTests.swift */; };
+		2C67A3B9248D820100D2E2DE /* FeedViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3B5248D820100D2E2DE /* FeedViewControllerTests.swift */; };
+		2C67A3BA248D820100D2E2DE /* FeedInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3B6248D820100D2E2DE /* FeedInteractorTests.swift */; };
+		2C67A3BB248D820100D2E2DE /* FeedWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3B7248D820100D2E2DE /* FeedWorkerTests.swift */; };
+		2C67A3BC248D820100D2E2DE /* FeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3B8248D820100D2E2DE /* FeedPresenterTests.swift */; };
 		2C69AC30248CCF4C009B2E24 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */; };
 		2C69AC32248CCFA4009B2E24 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC31248CCFA4009B2E24 /* Todo.swift */; };
 		2C69AC34248CD02B009B2E24 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC33248CD02B009B2E24 /* Album.swift */; };
@@ -128,6 +132,10 @@
 		2C67A3AD248D401000D2E2DE /* ProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorTests.swift; sourceTree = "<group>"; };
 		2C67A3AE248D401000D2E2DE /* ProfileWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkerTests.swift; sourceTree = "<group>"; };
 		2C67A3AF248D401000D2E2DE /* ProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterTests.swift; sourceTree = "<group>"; };
+		2C67A3B5248D820100D2E2DE /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
+		2C67A3B6248D820100D2E2DE /* FeedInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInteractorTests.swift; sourceTree = "<group>"; };
+		2C67A3B7248D820100D2E2DE /* FeedWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWorkerTests.swift; sourceTree = "<group>"; };
+		2C67A3B8248D820100D2E2DE /* FeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenterTests.swift; sourceTree = "<group>"; };
 		2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
 		2C69AC31248CCFA4009B2E24 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		2C69AC33248CD02B009B2E24 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -265,6 +273,7 @@
 		2C67A3AA248D3FE300D2E2DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2C67A3B4248D80B200D2E2DE /* FeedScene */,
 				2C67A3AB248D3FF100D2E2DE /* ProfileScene */,
 			);
 			path = Scenes;
@@ -279,6 +288,17 @@
 				2C67A3AF248D401000D2E2DE /* ProfilePresenterTests.swift */,
 			);
 			path = ProfileScene;
+			sourceTree = "<group>";
+		};
+		2C67A3B4248D80B200D2E2DE /* FeedScene */ = {
+			isa = PBXGroup;
+			children = (
+				2C67A3B5248D820100D2E2DE /* FeedViewControllerTests.swift */,
+				2C67A3B6248D820100D2E2DE /* FeedInteractorTests.swift */,
+				2C67A3B7248D820100D2E2DE /* FeedWorkerTests.swift */,
+				2C67A3B8248D820100D2E2DE /* FeedPresenterTests.swift */,
+			);
+			path = FeedScene;
 			sourceTree = "<group>";
 		};
 		2C69AC2D248CCF01009B2E24 /* Albums */ = {
@@ -882,9 +902,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C67A3B0248D401000D2E2DE /* ProfileViewControllerTests.swift in Sources */,
+				2C67A3BB248D820100D2E2DE /* FeedWorkerTests.swift in Sources */,
 				2C67A3B3248D401000D2E2DE /* ProfilePresenterTests.swift in Sources */,
 				2C67A3B2248D401000D2E2DE /* ProfileWorkerTests.swift in Sources */,
+				2C67A3BA248D820100D2E2DE /* FeedInteractorTests.swift in Sources */,
 				2C67A3B1248D401000D2E2DE /* ProfileInteractorTests.swift in Sources */,
+				2C67A3B9248D820100D2E2DE /* FeedViewControllerTests.swift in Sources */,
+				2C67A3BC248D820100D2E2DE /* FeedPresenterTests.swift in Sources */,
 				2CDE75532488F2E200949272 /* JSONPlaceholderappTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
