@@ -13,6 +13,8 @@
 		2C57F174248A3E84007FF471 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */; };
 		2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */; };
 		2C57F177248A4132007FF471 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */; };
+		2C69AC32248CCFA4009B2E24 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC31248CCFA4009B2E24 /* Todo.swift */; };
+		2C69AC34248CD02B009B2E24 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC33248CD02B009B2E24 /* Album.swift */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -84,6 +86,8 @@
 		2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
+		2C69AC31248CCFA4009B2E24 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		2C69AC33248CD02B009B2E24 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 			children = (
 				2CDE75A1248916E700949272 /* Post.swift */,
 				2C57F16D248A2F91007FF471 /* User.swift */,
+				2C69AC31248CCFA4009B2E24 /* Todo.swift */,
+				2C69AC33248CD02B009B2E24 /* Album.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,6 +351,8 @@
 				2CE2BD22248C106E0064A8EE /* APIBaseRepository.swift */,
 				2CE2BD24248C166F0064A8EE /* Posts */,
 				2CE2BD28248C19020064A8EE /* Users */,
+				2C69AC2E248CCF09009B2E24 /* Todos */,
+				2C69AC2D248CCF01009B2E24 /* Albums */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -400,7 +408,6 @@
 				1ADEDAAE5423E5F1D5308DA9 /* Pods-JSONPlaceholderappTests.debug.xcconfig */,
 				4C175DD53A78F9453B0108AA /* Pods-JSONPlaceholderappTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -600,6 +607,7 @@
 				2CDE75952489007E00949272 /* Array+Additions.swift in Sources */,
 				2CDE759C24890E2600949272 /* UITableView+Additions.swift in Sources */,
 				2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */,
+				2C69AC34248CD02B009B2E24 /* Album.swift in Sources */,
 				2CE2BD43248C2ACC0064A8EE /* ProfilePresenter.swift in Sources */,
 				2CDE75782488F8D400949272 /* FeedViewController.swift in Sources */,
 				2CE2BD23248C106E0064A8EE /* APIBaseRepository.swift in Sources */,
@@ -620,6 +628,7 @@
 				2CDE75752488F8D400949272 /* FeedWorker.swift in Sources */,
 				2CDE75842488F9CE00949272 /* ExploreWorker.swift in Sources */,
 				2C57F170248A331E007FF471 /* UsersManager.swift in Sources */,
+				2C69AC32248CCFA4009B2E24 /* Todo.swift in Sources */,
 				2CE2BD1F248C043E0064A8EE /* APIPostRepository.swift in Sources */,
 				2CE2BD2A248C19120064A8EE /* UserRepository.swift in Sources */,
 				2CE2BD1B248C03620064A8EE /* PostRepository.swift in Sources */,

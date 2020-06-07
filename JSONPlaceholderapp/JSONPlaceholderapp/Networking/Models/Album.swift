@@ -1,21 +1,20 @@
 //
-//  User.swift
+//  Album.swift
 //  JSONPlaceholderapp
 //
-//  Created by Iván Díaz Molina on 05/06/2020.
+//  Created by Iván Díaz Molina on 07/06/2020.
 //  Copyright © 2020 Iván Díaz Molina. All rights reserved.
 //
 
 import Foundation
 
-struct User: Codable {
+struct Album: Codable {
+    var userId: Int?
     var id: Int?
-    var name: String?
-    var username: String?
-    var email: String?
+    var title: String?
     
     init(_ data: Data) throws {
-        self = try JSONDecoder().decode(User.self, from: data)
+        self = try JSONDecoder().decode(Album.self, from: data)
     }
     
     init(_ json: String, encoding: String.Encoding = .utf8) throws {
