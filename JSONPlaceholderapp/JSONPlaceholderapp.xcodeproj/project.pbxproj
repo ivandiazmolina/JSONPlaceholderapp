@@ -62,6 +62,8 @@
 		2CE2BD47248C2ACC0064A8EE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD41248C2ACC0064A8EE /* ProfileViewController.swift */; };
 		2CE2BD48248C2ACC0064A8EE /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2BD42248C2ACC0064A8EE /* ProfileInteractor.swift */; };
 		2CE2BD4A248C2AEB0064A8EE /* ProfileStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE2BD49248C2AEB0064A8EE /* ProfileStoryboard.storyboard */; };
+		B0156E0BDF5409C36FFA10BE /* Pods_JSONPlaceholderappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31E8BCBDF409AB4722672ED /* Pods_JSONPlaceholderappTests.framework */; };
+		EA682F194B734A1B40623BB8 /* Pods_JSONPlaceholderapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA2BA0EB2504B63ACF97686 /* Pods_JSONPlaceholderapp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ADEDAAE5423E5F1D5308DA9 /* Pods-JSONPlaceholderappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderappTests.debug.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderappTests/Pods-JSONPlaceholderappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C57F16B248A2AB7007FF471 /* PostsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsManager.swift; sourceTree = "<group>"; };
 		2C57F16D248A2F91007FF471 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2C57F16F248A331E007FF471 /* UsersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersManager.swift; sourceTree = "<group>"; };
@@ -134,6 +137,11 @@
 		2CE2BD41248C2ACC0064A8EE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2CE2BD42248C2ACC0064A8EE /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		2CE2BD49248C2AEB0064A8EE /* ProfileStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileStoryboard.storyboard; sourceTree = "<group>"; };
+		2DCBA049F5409DF7A737944C /* Pods-JSONPlaceholderapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderapp.debug.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp.debug.xcconfig"; sourceTree = "<group>"; };
+		4C175DD53A78F9453B0108AA /* Pods-JSONPlaceholderappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderappTests.release.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderappTests/Pods-JSONPlaceholderappTests.release.xcconfig"; sourceTree = "<group>"; };
+		BBEB4BA9F17B6861588F308D /* Pods-JSONPlaceholderapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderapp.release.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp.release.xcconfig"; sourceTree = "<group>"; };
+		BFA2BA0EB2504B63ACF97686 /* Pods_JSONPlaceholderapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSONPlaceholderapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31E8BCBDF409AB4722672ED /* Pods_JSONPlaceholderappTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSONPlaceholderappTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA682F194B734A1B40623BB8 /* Pods_JSONPlaceholderapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0156E0BDF5409C36FFA10BE /* Pods_JSONPlaceholderappTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +188,8 @@
 				2CDE753A2488F2E000949272 /* JSONPlaceholderapp */,
 				2CDE75512488F2E200949272 /* JSONPlaceholderappTests */,
 				2CDE75392488F2E000949272 /* Products */,
+				E46B20FBF743EF22269D6BDB /* Pods */,
+				CE2DE03C4EF8F3DF54970057 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -371,6 +383,27 @@
 			path = ProfileScene;
 			sourceTree = "<group>";
 		};
+		CE2DE03C4EF8F3DF54970057 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFA2BA0EB2504B63ACF97686 /* Pods_JSONPlaceholderapp.framework */,
+				D31E8BCBDF409AB4722672ED /* Pods_JSONPlaceholderappTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E46B20FBF743EF22269D6BDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2DCBA049F5409DF7A737944C /* Pods-JSONPlaceholderapp.debug.xcconfig */,
+				BBEB4BA9F17B6861588F308D /* Pods-JSONPlaceholderapp.release.xcconfig */,
+				1ADEDAAE5423E5F1D5308DA9 /* Pods-JSONPlaceholderappTests.debug.xcconfig */,
+				4C175DD53A78F9453B0108AA /* Pods-JSONPlaceholderappTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -378,9 +411,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CDE75572488F2E200949272 /* Build configuration list for PBXNativeTarget "JSONPlaceholderapp" */;
 			buildPhases = (
+				AC2AA407BA60FA1A37858737 /* [CP] Check Pods Manifest.lock */,
 				2CDE75342488F2E000949272 /* Sources */,
 				2CDE75352488F2E000949272 /* Frameworks */,
 				2CDE75362488F2E000949272 /* Resources */,
+				284F128A8C8ECFA74659ED14 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -395,6 +430,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CDE755A2488F2E200949272 /* Build configuration list for PBXNativeTarget "JSONPlaceholderappTests" */;
 			buildPhases = (
+				FCE423C946A4E684EBA74CB2 /* [CP] Check Pods Manifest.lock */,
 				2CDE754A2488F2E200949272 /* Sources */,
 				2CDE754B2488F2E200949272 /* Frameworks */,
 				2CDE754C2488F2E200949272 /* Resources */,
@@ -472,6 +508,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		284F128A8C8ECFA74659ED14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC2AA407BA60FA1A37858737 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSONPlaceholderapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCE423C946A4E684EBA74CB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JSONPlaceholderappTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CDE75342488F2E000949272 /* Sources */ = {
@@ -672,6 +772,7 @@
 		};
 		2CDE75582488F2E200949272 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DCBA049F5409DF7A737944C /* Pods-JSONPlaceholderapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -689,6 +790,7 @@
 		};
 		2CDE75592488F2E200949272 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBEB4BA9F17B6861588F308D /* Pods-JSONPlaceholderapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -706,6 +808,7 @@
 		};
 		2CDE755B2488F2E200949272 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1ADEDAAE5423E5F1D5308DA9 /* Pods-JSONPlaceholderappTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -727,6 +830,7 @@
 		};
 		2CDE755C2488F2E200949272 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C175DD53A78F9453B0108AA /* Pods-JSONPlaceholderappTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

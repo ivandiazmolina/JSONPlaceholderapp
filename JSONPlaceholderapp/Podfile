@@ -6,6 +6,7 @@ target 'JSONPlaceholderapp' do
   use_frameworks!
 
   # Pods for JSONPlaceholderapp
+  pod 'NVActivityIndicatorView'
 
   target 'JSONPlaceholderappTests' do
     inherit! :search_paths
