@@ -44,7 +44,8 @@ class ExploreRouter: NSObject, ExploreRoutingLogic, ExploreDataPassing {
     // MARK: Navigation
     
     func navigateToProfile(source: ExploreViewController, destination: ProfileViewController) {
-        source.show(destination, sender: nil)
+        source.navigationController?.pushViewController(destination, animated: true)
+//        source.show(destination, sender: nil)
     }
     
     // MARK: Passing data

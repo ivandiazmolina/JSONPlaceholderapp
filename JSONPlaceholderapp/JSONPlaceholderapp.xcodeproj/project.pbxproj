@@ -243,9 +243,9 @@
 		2CDE753A2488F2E000949272 /* JSONPlaceholderapp */ = {
 			isa = PBXGroup;
 			children = (
-				2CEC7290248CF54700BA523F /* Components */,
 				2CDE755D2488F5A500949272 /* Scenes */,
 				2CDE759D2489139A00949272 /* Networking */,
+				2CEC7290248CF54700BA523F /* Components */,
 				2CDE758B2488FDE900949272 /* Utils */,
 				2C57F168248A2693007FF471 /* Managers */,
 				2CE2BD19248C03470064A8EE /* Repositories */,

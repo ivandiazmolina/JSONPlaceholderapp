@@ -70,7 +70,7 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let parent = parent as? MainViewController {
+        if let parent = parent?.parent as? MainViewController {
             parent.mainDelegate = self
         }
         
@@ -79,6 +79,9 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
     
     /// setup and customize the UI elements in the scene
     func setupView(viewModel: Feed.Models.ViewModel) {
+        
+        // NavigationController
+        self.navigationItem.title = "feed".localized;
         
         // TableView
         feedTableView.register(FeedTableViewCell.cellIdentifier)

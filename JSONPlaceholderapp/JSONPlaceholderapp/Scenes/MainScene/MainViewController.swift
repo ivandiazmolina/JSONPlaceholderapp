@@ -91,8 +91,8 @@ class MainViewController: UITabBarController, MainDisplayLogic {
         
         print(viewModel)
         
-        let feedVC = viewControllers?.getElement(0) as? FeedViewController
-        let exploreVC = viewControllers?.getElement(1) as? ExploreViewController
+        let feedVC = viewControllers?.getElement(0)?.children.getElement(0) as? FeedViewController
+        let exploreVC = viewControllers?.getElement(1)?.children.getElement(0) as? ExploreViewController
         
         feedVC?.interactor?.setPosts(viewModel.posts ?? [])
         exploreVC?.interactor?.setUsers(viewModel.users ?? [])

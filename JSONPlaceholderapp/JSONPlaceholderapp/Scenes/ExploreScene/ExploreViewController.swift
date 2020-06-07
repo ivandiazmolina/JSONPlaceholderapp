@@ -77,6 +77,9 @@ class ExploreViewController: BaseViewController, ExploreDisplayLogic {
     
     func setupView(viewModel: Explore.Models.ViewModel) {
         
+        // NavigationController
+        self.navigationItem.title = "explore".localized;
+        
         //CollectionView
         exploreCollectionView.register(ExploreCollectionViewCell.cellIdentifier)
         exploreCollectionView.delegate = self
