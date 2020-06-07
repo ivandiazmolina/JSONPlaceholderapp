@@ -22,15 +22,6 @@ class AlbumTableViewCell: UITableViewCell {
     }
     
     func updateUI(model: Profile.Models.AlbumCellModel) {
-        
-        self.applyStyle()
-        
         titleLabel.text = model.album?.title
-    }
-    
-    func applyStyle() {
-        
-        //        user.textColor = UIColor.greenPersonal
-        //        bgView.backgroundColor = UIColor.orange
     }
 }

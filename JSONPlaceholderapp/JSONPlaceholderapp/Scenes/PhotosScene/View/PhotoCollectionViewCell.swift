@@ -28,5 +28,4 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             self?.photoImageView.backgroundColor = .clear
         }
     }
-
 }

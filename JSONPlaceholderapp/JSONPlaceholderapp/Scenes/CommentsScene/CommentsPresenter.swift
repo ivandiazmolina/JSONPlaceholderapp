@@ -13,8 +13,13 @@
 import UIKit
 
 protocol CommentsPresentationLogic {
+    func setupView()
 }
 
 class CommentsPresenter: CommentsPresentationLogic {
     weak var viewController: CommentsDisplayLogic?
+    
+    func setupView() {
+        viewController?.setupView()
+    }
 }

@@ -30,19 +30,11 @@ class FeedTableViewCell: UITableViewCell {
     }
     
     func updateUI(model: Feed.Models.PostCellModel) {
-
-        self.applyStyle()
         
         post = model.post
         
         userNameLabel.text = String(format: "UserId: %d", model.post?.userId ?? "")
         postLabel.text = model.post?.body
-    }
-    
-    func applyStyle() {
-       
-//        user.textColor = UIColor.greenPersonal
-//        bgView.backgroundColor = UIColor.orange
     }
     
     @IBAction func onTouchSeeComments(_ sender: UIButton) {

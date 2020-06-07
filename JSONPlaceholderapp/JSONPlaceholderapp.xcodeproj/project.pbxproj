@@ -32,6 +32,8 @@
 		2C6A4449248D367700AA24F8 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4443248D367700AA24F8 /* CommentsViewController.swift */; };
 		2C6A444A248D367700AA24F8 /* CommentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4444248D367700AA24F8 /* CommentsInteractor.swift */; };
 		2C6A444C248D37AF00AA24F8 /* CommentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */; };
+		2C6A444F248D3ABA00AA24F8 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A444D248D3ABA00AA24F8 /* CommentTableViewCell.swift */; };
+		2C6A4450248D3ABA00AA24F8 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A444E248D3ABA00AA24F8 /* CommentTableViewCell.xib */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -137,6 +139,8 @@
 		2C6A4443248D367700AA24F8 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		2C6A4444248D367700AA24F8 /* CommentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsInteractor.swift; sourceTree = "<group>"; };
 		2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentsStoryboard.storyboard; sourceTree = "<group>"; };
+		2C6A444D248D3ABA00AA24F8 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		2C6A444E248D3ABA00AA24F8 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 		2C6A443E248D365B00AA24F8 /* CommentsScene */ = {
 			isa = PBXGroup;
 			children = (
+				2C6A4451248D3AC500AA24F8 /* View */,
 				2C6A443F248D367700AA24F8 /* CommentsPresenter.swift */,
 				2C6A4440248D367700AA24F8 /* CommentsWorker.swift */,
 				2C6A4441248D367700AA24F8 /* CommentsRouter.swift */,
@@ -298,6 +303,15 @@
 				2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */,
 			);
 			path = CommentsScene;
+			sourceTree = "<group>";
+		};
+		2C6A4451248D3AC500AA24F8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C6A444D248D3ABA00AA24F8 /* CommentTableViewCell.swift */,
+				2C6A444E248D3ABA00AA24F8 /* CommentTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2CDE752F2488F2E000949272 = {
@@ -665,6 +679,7 @@
 				2CDE75482488F2E200949272 /* LaunchScreen.storyboard in Resources */,
 				2CDE75932488FFFC00949272 /* Localizable.strings in Resources */,
 				2CDE75452488F2E200949272 /* Assets.xcassets in Resources */,
+				2C6A4450248D3ABA00AA24F8 /* CommentTableViewCell.xib in Resources */,
 				2CEC7296248CF95600BA523F /* TodoTableViewCell.xib in Resources */,
 				2CEC728F248CEE2F00BA523F /* AlbumTableViewCell.xib in Resources */,
 				2CDE756C2488F66F00949272 /* MainStoryboard.storyboard in Resources */,
@@ -808,6 +823,7 @@
 				2CE2BD2E248C1A5A0064A8EE /* LocalUserRepository.swift in Sources */,
 				2CDE75832488F9CE00949272 /* ExplorePresenter.swift in Sources */,
 				2CEC7292248CF56D00BA523F /* IntrinsicHeightTableView.swift in Sources */,
+				2C6A444F248D3ABA00AA24F8 /* CommentTableViewCell.swift in Sources */,
 				2CDE75652488F63D00949272 /* MainPresenter.swift in Sources */,
 				2CDE75872488F9CE00949272 /* ExploreViewController.swift in Sources */,
 				2CDE75A2248916E700949272 /* Post.swift in Sources */,

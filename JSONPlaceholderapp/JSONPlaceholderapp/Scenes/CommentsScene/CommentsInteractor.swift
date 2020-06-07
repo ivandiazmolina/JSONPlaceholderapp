@@ -13,6 +13,11 @@
 import UIKit
 
 protocol CommentsBusinessLogic {
+    func setupView()
+    
+    // MARK: Comments
+    func getCommentsCount() -> Int
+    func getCommentCellFor(index: Int) -> Comments.Models.CommentCellModel
 }
 
 protocol CommentsDataStore {
@@ -25,4 +30,18 @@ class CommentsInteractor: CommentsBusinessLogic, CommentsDataStore {
     var worker: CommentsWorker?
     
     var comments: [Comment]?
+    
+    func setupView() {
+        worker = CommentsWorker()
+        presenter?.setupView()
+    }
+    
+    func getCommentsCount() -> Int {
+        return comments?.count ?? 0
+    }
+    
+    func getCommentCellFor(index: Int) -> Comments.Models.CommentCellModel {
+        guard let comment = comments?.getElement(index) else { return Comments.Models.CommentCellModel() }
+        return Comments.Models.CommentCellModel(comment: comment)
+    }
 }

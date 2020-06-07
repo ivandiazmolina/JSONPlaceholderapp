@@ -21,17 +21,7 @@ class TodoTableViewCell: UITableViewCell {
     }
     
     func updateUI(model: Profile.Models.TodoCellModel) {
-        
-        self.applyStyle()
-        
         titleLabel.text = model.todo?.title
         self.accessoryType = model.todo?.completed ?? false ? .checkmark : .none
     }
-    
-    func applyStyle() {
-        
-        //        user.textColor = UIColor.greenPersonal
-        //        bgView.backgroundColor = UIColor.orange
-    }
-    
 }

@@ -13,12 +13,16 @@
 import UIKit
 
 protocol CommentsDisplayLogic: class {
+    func setupView()
 }
 
 class CommentsViewController: UIViewController, CommentsDisplayLogic {
     
     var interactor: CommentsBusinessLogic?
     var router: (NSObjectProtocol & CommentsRoutingLogic & CommentsDataPassing)?
+    
+    // MARK: IBOutlets
+    @IBOutlet weak var commentsTableView: UITableView!
     
     // MARK: Object lifecycle
     
@@ -62,5 +66,40 @@ class CommentsViewController: UIViewController, CommentsDisplayLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        interactor?.setupView()
+    }
+    
+    func setupView() {
+        
+        // TableView
+        commentsTableView.register(CommentTableViewCell.cellIdentifier)
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
+    }
+}
+
+// MARK: UITableviewDelegate and UITableViewDataSource
+
+extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return interactor?.getCommentsCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.cellIdentifier) as? CommentTableViewCell else {
+            print("Error to cast TableViewCell to CommentTableViewCell")
+            return UITableViewCell()
+        }
+        
+        guard let data = interactor?.getCommentCellFor(index: indexPath.row) else {
+            print("Error to get CommentTableViewCell from index")
+            return UITableViewCell()
+        }
+        
+        cell.updateUI(model: data)
+        
+        return cell
     }
 }

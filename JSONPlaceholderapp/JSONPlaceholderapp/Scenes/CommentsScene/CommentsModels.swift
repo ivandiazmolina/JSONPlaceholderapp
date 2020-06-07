@@ -22,5 +22,8 @@ enum Comments {
         }
         struct ViewModel {
         }
+        struct CommentCellModel {
+            var comment: Comment?
+        }
     }
 }
