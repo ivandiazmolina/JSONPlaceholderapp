@@ -21,5 +21,9 @@ class ExploreCollectionViewCell: UICollectionViewCell {
     func updateUI(model: Explore.Models.UserCellModel) {
         name.text = model.user?.name
         username.text = String(format: "@%@", model.user?.username ?? "")
+        
+        if let image = UIImage(named: model.user?.avatar ?? "") {
+            avatarImageView.image = image
+        }
     }
 }

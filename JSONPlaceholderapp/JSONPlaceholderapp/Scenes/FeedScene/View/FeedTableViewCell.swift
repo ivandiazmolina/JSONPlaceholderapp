@@ -29,7 +29,6 @@ class FeedTableViewCell: UITableViewCell {
         
         userNameLabel.text = String(format: "UserId: %d", model.post?.userId ?? "")
         postLabel.text = model.post?.body
-        
     }
 
     func applyStyle() {

@@ -15,5 +15,15 @@ struct Constants {
         static let explore: String = "ExploreStoryboard"
         static let profile: String = "ProfileStoryboard"
     }
+    
+    
+    struct Avatar {
+        static let bender: String = "bender"
+        static let homer: String = "homer"
+        static let ironman: String = "ironman"
+        static let mario: String = "ironman"
+        static let stormtrooper: String = "stormtrooper"
+    }
+    
 }
 

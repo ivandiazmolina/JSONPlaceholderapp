@@ -44,7 +44,32 @@ class MainWorker {
 
         // DispatchGroup
         dispatchGroup.notify(queue: .main) {
-            completion(mPosts, mUsers, nil)
+            
+            var usersArray: [User] =  []
+            
+            for user in mUsers ?? [] {
+                usersArray.append(self.assignAvatar(for: user))
+            }
+            
+            completion(mPosts, usersArray, nil)
         }
+    }
+    
+    
+    func assignAvatar(for user: User) -> User {
+        
+        var mUser = user
+        
+        let names = [
+            Constants.Avatar.bender,
+            Constants.Avatar.homer,
+            Constants.Avatar.ironman,
+            Constants.Avatar.mario,
+            Constants.Avatar.stormtrooper
+        ]
+
+        mUser.avatar = names.randomElement()
+        
+        return mUser
     }
 }
