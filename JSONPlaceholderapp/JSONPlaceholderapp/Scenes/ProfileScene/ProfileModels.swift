@@ -12,11 +12,17 @@
 
 import UIKit
 
+enum Event: String {
+    case onTouchAlbums
+    case onTouchTodos
+}
+
 enum Profile {
     // MARK: Use cases
     
     enum Models {
         struct Request {
+            var event: Event?
         }
         struct Response {
             var user: User?

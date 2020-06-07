@@ -72,6 +72,8 @@
 		2CEC728E248CEE2F00BA523F /* AlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC728C248CEE2F00BA523F /* AlbumTableViewCell.swift */; };
 		2CEC728F248CEE2F00BA523F /* AlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC728D248CEE2F00BA523F /* AlbumTableViewCell.xib */; };
 		2CEC7292248CF56D00BA523F /* IntrinsicHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC7291248CF56D00BA523F /* IntrinsicHeightTableView.swift */; };
+		2CEC7295248CF95600BA523F /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC7293248CF95600BA523F /* TodoTableViewCell.swift */; };
+		2CEC7296248CF95600BA523F /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC7294248CF95600BA523F /* TodoTableViewCell.xib */; };
 		B0156E0BDF5409C36FFA10BE /* Pods_JSONPlaceholderappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31E8BCBDF409AB4722672ED /* Pods_JSONPlaceholderappTests.framework */; };
 		EA682F194B734A1B40623BB8 /* Pods_JSONPlaceholderapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA2BA0EB2504B63ACF97686 /* Pods_JSONPlaceholderapp.framework */; };
 /* End PBXBuildFile section */
@@ -157,6 +159,8 @@
 		2CEC728C248CEE2F00BA523F /* AlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTableViewCell.swift; sourceTree = "<group>"; };
 		2CEC728D248CEE2F00BA523F /* AlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumTableViewCell.xib; sourceTree = "<group>"; };
 		2CEC7291248CF56D00BA523F /* IntrinsicHeightTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicHeightTableView.swift; sourceTree = "<group>"; };
+		2CEC7293248CF95600BA523F /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
+		2CEC7294248CF95600BA523F /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		2DCBA049F5409DF7A737944C /* Pods-JSONPlaceholderapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderapp.debug.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp.debug.xcconfig"; sourceTree = "<group>"; };
 		4C175DD53A78F9453B0108AA /* Pods-JSONPlaceholderappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderappTests.release.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderappTests/Pods-JSONPlaceholderappTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBEB4BA9F17B6861588F308D /* Pods-JSONPlaceholderapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONPlaceholderapp.release.xcconfig"; path = "Target Support Files/Pods-JSONPlaceholderapp/Pods-JSONPlaceholderapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 			children = (
 				2CEC728C248CEE2F00BA523F /* AlbumTableViewCell.swift */,
 				2CEC728D248CEE2F00BA523F /* AlbumTableViewCell.xib */,
+				2CEC7293248CF95600BA523F /* TodoTableViewCell.swift */,
+				2CEC7294248CF95600BA523F /* TodoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				2CDE75482488F2E200949272 /* LaunchScreen.storyboard in Resources */,
 				2CDE75932488FFFC00949272 /* Localizable.strings in Resources */,
 				2CDE75452488F2E200949272 /* Assets.xcassets in Resources */,
+				2CEC7296248CF95600BA523F /* TodoTableViewCell.xib in Resources */,
 				2CEC728F248CEE2F00BA523F /* AlbumTableViewCell.xib in Resources */,
 				2CDE756C2488F66F00949272 /* MainStoryboard.storyboard in Resources */,
 				2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */,
@@ -658,6 +665,7 @@
 				2C57F16E248A2F91007FF471 /* User.swift in Sources */,
 				2CE2BD2C248C19990064A8EE /* APIUserRepository.swift in Sources */,
 				2CE2BD46248C2ACC0064A8EE /* ProfileModels.swift in Sources */,
+				2CEC7295248CF95600BA523F /* TodoTableViewCell.swift in Sources */,
 				2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */,
 				2C69AC30248CCF4C009B2E24 /* TodoRepository.swift in Sources */,
 				2CDE75852488F9CE00949272 /* ExploreRouter.swift in Sources */,

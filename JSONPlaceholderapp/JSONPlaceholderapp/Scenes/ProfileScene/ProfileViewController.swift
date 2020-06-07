@@ -14,6 +14,8 @@ import UIKit
 
 protocol ProfileDisplayLogic: class {
     func setupView(viewModel: Profile.Models.ViewModel)
+    func displayAlbums()
+    func displayTodos()
 }
 
 class ProfileViewController: BaseViewController, ProfileDisplayLogic {
@@ -21,11 +23,15 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     var interactor: ProfileBusinessLogic?
     var router: (NSObjectProtocol & ProfileRoutingLogic & ProfileDataPassing)?
     
+    // MARK: LETS AND VARS
+    private let CELL_SIZE: CGFloat = 100
+    
     // MARK: IBOutlets
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var albumsTableView: UITableView!
+    @IBOutlet weak var todosTableView: UITableView!
     
     // MARK: Object lifecycle
     
@@ -57,10 +63,12 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     
     @IBAction func onTapAlbums(_ sender: UIButton) {
         print("onTapAlbums")
+        interactor?.loadData(request: Profile.Models.Request(event: .onTouchAlbums))
     }
     
     @IBAction func onTapTodos(_ sender: UIButton) {
         print("onTapTodos")
+        interactor?.loadData(request: Profile.Models.Request(event: .onTouchTodos))
     }
     
     // MARK: Routing
@@ -83,27 +91,43 @@ class ProfileViewController: BaseViewController, ProfileDisplayLogic {
     
     func setupView(viewModel: Profile.Models.ViewModel) {
         
-        // TableView
+        // NavigationController
+        self.navigationItem.title = "profile".localized;
+        
+        // Album TableView
         albumsTableView.register(AlbumTableViewCell.cellIdentifier)
         albumsTableView.delegate = self
         albumsTableView.dataSource = self
+        
+        // Todos TableView
+        todosTableView.register(TodoTableViewCell.cellIdentifier)
+        todosTableView.delegate = self
+        todosTableView.dataSource = self
         
         ui { [weak self] in
             self?.nameLabel.text = viewModel.name
             self?.usernameLabel.text = viewModel.username
         }
     }
-}
-
-// MARK: UITableviewDelegate and UITableViewDataSource
-
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return interactor?.getAlbumsCount() ?? 0
+    func displayAlbums() {
+        
+        ui { [weak self] in
+            self?.todosTableView.isHidden = true
+            self?.albumsTableView.isHidden = false
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func displayTodos() {
+        ui { [weak self] in
+            self?.albumsTableView.isHidden = true
+            self?.todosTableView.isHidden = false
+        }
+    }
+    
+    // MARK: Private methods
+    
+    private func setupAlbumTableView(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AlbumTableViewCell.cellIdentifier) as? AlbumTableViewCell else {
             print("Error to cast TableViewCell to AlbumTableViewCell")
@@ -118,5 +142,45 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         cell.updateUI(model: data)
         
         return cell
+    }
+    
+    private func setupTodoTableView(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoTableViewCell.cellIdentifier) as? TodoTableViewCell else {
+            print("Error to cast TableViewCell to TodoTableViewCell")
+            return UITableViewCell()
+        }
+        
+        guard let data = interactor?.getTodoCellFor(index: indexPath.row) else {
+            print("Error to get TodoTableViewCell from index")
+            return UITableViewCell()
+        }
+        
+        cell.updateUI(model: data)
+        
+        return cell
+    }
+}
+
+// MARK: UITableviewDelegate and UITableViewDataSource
+
+extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return interactor?.getAlbumsCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+               
+        switch tableView {
+        case albumsTableView:
+            return setupAlbumTableView(tableView: tableView, indexPath: indexPath)
+        default:
+            return setupTodoTableView(tableView: tableView, indexPath: indexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CELL_SIZE
     }
 }

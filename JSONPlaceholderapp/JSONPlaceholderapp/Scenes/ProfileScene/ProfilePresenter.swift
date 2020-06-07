@@ -14,6 +14,8 @@ import UIKit
 
 protocol ProfilePresentationLogic {
     func setupView(response: Profile.Models.Response)
+    func presentAlbums()
+    func presentTodos()
 }
 
 class ProfilePresenter: ProfilePresentationLogic {
@@ -21,7 +23,18 @@ class ProfilePresenter: ProfilePresentationLogic {
     weak var viewController: ProfileDisplayLogic?
     
     func setupView(response: Profile.Models.Response) {
-        let viewModel = Profile.Models.ViewModel(name: response.user?.name, username: response.user?.username)
+        
+        let username = String(format: "@%@", response.user?.username ?? "")
+        
+        let viewModel = Profile.Models.ViewModel(name: response.user?.name, username: username)
         viewController?.setupView(viewModel: viewModel)
+    }
+    
+    func presentAlbums() {
+        viewController?.displayAlbums()
+    }
+    
+    func presentTodos() {
+        viewController?.displayTodos()
     }
 }

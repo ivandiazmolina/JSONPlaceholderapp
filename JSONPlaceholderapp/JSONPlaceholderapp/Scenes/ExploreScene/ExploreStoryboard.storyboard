@@ -37,7 +37,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Y1k-Vb-V7h" firstAttribute="bottom" secondItem="rgH-NK-Gpm" secondAttribute="bottom" id="04M-XI-qur"/>
                             <constraint firstItem="rgH-NK-Gpm" firstAttribute="top" secondItem="Y1k-Vb-V7h" secondAttribute="top" id="JkO-3x-g4b"/>

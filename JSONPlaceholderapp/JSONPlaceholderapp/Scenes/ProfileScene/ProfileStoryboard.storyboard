@@ -70,24 +70,23 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3A-2M-ceq" userLabel="contentStack">
                                                         <rect key="frame" x="0.0" y="218.5" width="382" height="130"/>
                                                         <subviews>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rkz-0u-klM" customClass="IntrinsicHeightTableView" customModule="JSONPlaceholderapp" customModuleProvider="target">
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rkz-0u-klM" customClass="IntrinsicHeightTableView" customModule="JSONPlaceholderapp" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="130"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" priority="250" constant="130" placeholder="YES" id="7Qv-no-oWz"/>
                                                                 </constraints>
                                                             </tableView>
-                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGF-xQ-7LO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="382" height="130"/>
-                                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B28-jO-s39" customClass="IntrinsicHeightTableView" customModule="JSONPlaceholderapp" customModuleProvider="target">
+                                                                <rect key="frame" x="382" y="0.0" width="0.0" height="130"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" priority="250" constant="130" id="JlY-n6-twH"/>
+                                                                    <constraint firstAttribute="height" priority="250" constant="130" placeholder="YES" id="oPf-Yv-yMX"/>
                                                                 </constraints>
-                                                            </view>
+                                                            </tableView>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="rkz-0u-klM" firstAttribute="width" secondItem="S3A-2M-ceq" secondAttribute="width" id="nid-Ev-fFF"/>
-                                                            <constraint firstItem="JGF-xQ-7LO" firstAttribute="width" secondItem="S3A-2M-ceq" secondAttribute="width" id="p4a-iN-E4j"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -130,6 +129,7 @@
                         <outlet property="albumsTableView" destination="rkz-0u-klM" id="rRj-ii-Iw9"/>
                         <outlet property="avatarImageView" destination="YeU-sJ-vzs" id="ipu-HY-2sR"/>
                         <outlet property="nameLabel" destination="eBu-Wc-UcM" id="dct-XB-VSJ"/>
+                        <outlet property="todosTableView" destination="B28-jO-s39" id="aO7-wT-ibU"/>
                         <outlet property="usernameLabel" destination="gDz-8p-ac7" id="1f6-tz-Da4"/>
                     </connections>
                 </viewController>

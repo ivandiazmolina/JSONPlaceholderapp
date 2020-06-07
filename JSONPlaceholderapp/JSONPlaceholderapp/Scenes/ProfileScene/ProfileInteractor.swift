@@ -14,6 +14,7 @@ import UIKit
 
 protocol ProfileBusinessLogic {
     func setupView()
+    func loadData(request: Profile.Models.Request)
     
     // MARK: Album
     func getAlbumsCount() -> Int
@@ -43,6 +44,19 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
     func setupView() {
         let response = Profile.Models.Response(user: user)
         presenter?.setupView(response: response)
+    }
+    
+    // MARK: Common
+    
+    func loadData(request: Profile.Models.Request) {
+                
+        switch request.event {
+        case .onTouchAlbums:
+            presenter?.presentAlbums()
+        case .onTouchTodos:
+            presenter?.presentTodos()
+        default: break
+        }
     }
     
     // MARK: Albums
