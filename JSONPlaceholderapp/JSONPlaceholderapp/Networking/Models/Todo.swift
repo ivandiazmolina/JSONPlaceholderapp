@@ -14,6 +14,13 @@ struct Todo: Codable {
     var title: String?
     var completed: Bool?
     
+    init() {
+        userId = -1
+        id = -1
+        title = ""
+        completed = false
+    }
+    
     init(_ data: Data) throws {
         self = try JSONDecoder().decode(Todo.self, from: data)
     }

@@ -13,6 +13,12 @@ struct Album: Codable {
     var id: Int?
     var title: String?
     
+    init() {
+        userId = -1
+        id = -1
+        title = ""
+    }
+    
     init(_ data: Data) throws {
         self = try JSONDecoder().decode(Album.self, from: data)
     }

@@ -14,6 +14,13 @@ struct Post: Codable {
     var title: String?
     var body: String?
     
+    init() {
+        userId = -1
+        id = -1
+        title = ""
+        body = ""
+    }
+    
     init(_ data: Data) throws {
         self = try JSONDecoder().decode(Post.self, from: data)
     }

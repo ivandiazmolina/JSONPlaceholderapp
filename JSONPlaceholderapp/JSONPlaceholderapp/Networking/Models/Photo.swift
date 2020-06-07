@@ -15,6 +15,14 @@ struct Photo: Codable {
     var url: String?
     var thumbnailUrl: String?
     
+    init() {
+        albumId = -1
+        id = -1
+        title = ""
+        url = ""
+        thumbnailUrl = ""
+    }
+    
     init(_ data: Data) throws {
         self = try JSONDecoder().decode(Photo.self, from: data)
     }

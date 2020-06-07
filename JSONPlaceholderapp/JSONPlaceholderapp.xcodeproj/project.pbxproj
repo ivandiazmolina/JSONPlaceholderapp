@@ -13,6 +13,10 @@
 		2C57F174248A3E84007FF471 /* ExploreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */; };
 		2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */; };
 		2C57F177248A4132007FF471 /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */; };
+		2C67A3B0248D401000D2E2DE /* ProfileViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AC248D401000D2E2DE /* ProfileViewControllerTests.swift */; };
+		2C67A3B1248D401000D2E2DE /* ProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AD248D401000D2E2DE /* ProfileInteractorTests.swift */; };
+		2C67A3B2248D401000D2E2DE /* ProfileWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AE248D401000D2E2DE /* ProfileWorkerTests.swift */; };
+		2C67A3B3248D401000D2E2DE /* ProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C67A3AF248D401000D2E2DE /* ProfilePresenterTests.swift */; };
 		2C69AC30248CCF4C009B2E24 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */; };
 		2C69AC32248CCFA4009B2E24 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC31248CCFA4009B2E24 /* Todo.swift */; };
 		2C69AC34248CD02B009B2E24 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C69AC33248CD02B009B2E24 /* Album.swift */; };
@@ -120,6 +124,10 @@
 		2C57F172248A3E84007FF471 /* ExploreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C57F173248A3E84007FF471 /* ExploreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C57F176248A4132007FF471 /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
+		2C67A3AC248D401000D2E2DE /* ProfileViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerTests.swift; sourceTree = "<group>"; };
+		2C67A3AD248D401000D2E2DE /* ProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorTests.swift; sourceTree = "<group>"; };
+		2C67A3AE248D401000D2E2DE /* ProfileWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorkerTests.swift; sourceTree = "<group>"; };
+		2C67A3AF248D401000D2E2DE /* ProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterTests.swift; sourceTree = "<group>"; };
 		2C69AC2F248CCF4C009B2E24 /* TodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRepository.swift; sourceTree = "<group>"; };
 		2C69AC31248CCFA4009B2E24 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		2C69AC33248CD02B009B2E24 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -254,6 +262,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2C67A3AA248D3FE300D2E2DE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2C67A3AB248D3FF100D2E2DE /* ProfileScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2C67A3AB248D3FF100D2E2DE /* ProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				2C67A3AC248D401000D2E2DE /* ProfileViewControllerTests.swift */,
+				2C67A3AD248D401000D2E2DE /* ProfileInteractorTests.swift */,
+				2C67A3AE248D401000D2E2DE /* ProfileWorkerTests.swift */,
+				2C67A3AF248D401000D2E2DE /* ProfilePresenterTests.swift */,
+			);
+			path = ProfileScene;
+			sourceTree = "<group>";
+		};
 		2C69AC2D248CCF01009B2E24 /* Albums */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +384,7 @@
 		2CDE75512488F2E200949272 /* JSONPlaceholderappTests */ = {
 			isa = PBXGroup;
 			children = (
+				2C67A3AA248D3FE300D2E2DE /* Scenes */,
 				2CDE75522488F2E200949272 /* JSONPlaceholderappTests.swift */,
 				2CDE75542488F2E200949272 /* Info.plist */,
 			);
@@ -853,6 +881,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C67A3B0248D401000D2E2DE /* ProfileViewControllerTests.swift in Sources */,
+				2C67A3B3248D401000D2E2DE /* ProfilePresenterTests.swift in Sources */,
+				2C67A3B2248D401000D2E2DE /* ProfileWorkerTests.swift in Sources */,
+				2C67A3B1248D401000D2E2DE /* ProfileInteractorTests.swift in Sources */,
 				2CDE75532488F2E200949272 /* JSONPlaceholderappTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

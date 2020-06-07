@@ -18,6 +18,14 @@ struct Constants {
         static let comments: String = "CommentsStoryboard"
     }
     
+    struct Scene {
+        static let feed: String = "FeedViewController"
+        static let explore: String = "ExploreViewController"
+        static let profile: String = "ProfileViewController"
+        static let photos: String = "PhotosViewController"
+        static let comments: String = "CommentsViewController"
+    }
+    
     struct Avatar {
         static let bender: String = "bender"
         static let homer: String = "homer"

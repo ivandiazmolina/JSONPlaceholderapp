@@ -15,7 +15,6 @@ import UIKit
 enum Event: String {
     case onTouchAlbums
     case onTouchTodos
-    case didSelectedUser
 }
 
 enum Profile {

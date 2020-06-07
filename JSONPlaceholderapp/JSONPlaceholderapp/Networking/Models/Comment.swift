@@ -15,6 +15,14 @@ struct Comment: Codable {
     var email: String?
     var body: String?
     
+    init() {
+        postId = -1
+        id = -1
+        name = ""
+        email = ""
+        body = ""
+    }
+    
     init(_ data: Data) throws {
         self = try JSONDecoder().decode(Comment.self, from: data)
     }

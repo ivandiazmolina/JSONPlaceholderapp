@@ -16,6 +16,15 @@ struct User: Codable {
     var website: String?
     var avatar: String?
     
+    init() {
+        id = -1
+        name = ""
+        username = ""
+        email = ""
+        website = ""
+        avatar = ""
+    }
+    
     init(_ data: Data) throws {
         self = try JSONDecoder().decode(User.self, from: data)
     }
