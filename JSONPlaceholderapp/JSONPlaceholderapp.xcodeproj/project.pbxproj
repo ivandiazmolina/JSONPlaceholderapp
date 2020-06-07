@@ -25,6 +25,13 @@
 		2C6A4439248D2EFE00AA24F8 /* CommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4438248D2EFE00AA24F8 /* CommentRepository.swift */; };
 		2C6A443B248D2F0A00AA24F8 /* APICommentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A443A248D2F0A00AA24F8 /* APICommentRepository.swift */; };
 		2C6A443D248D2F3300AA24F8 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A443C248D2F3300AA24F8 /* Comment.swift */; };
+		2C6A4445248D367700AA24F8 /* CommentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A443F248D367700AA24F8 /* CommentsPresenter.swift */; };
+		2C6A4446248D367700AA24F8 /* CommentsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4440248D367700AA24F8 /* CommentsWorker.swift */; };
+		2C6A4447248D367700AA24F8 /* CommentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4441248D367700AA24F8 /* CommentsRouter.swift */; };
+		2C6A4448248D367700AA24F8 /* CommentsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4442248D367700AA24F8 /* CommentsModels.swift */; };
+		2C6A4449248D367700AA24F8 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4443248D367700AA24F8 /* CommentsViewController.swift */; };
+		2C6A444A248D367700AA24F8 /* CommentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A4444248D367700AA24F8 /* CommentsInteractor.swift */; };
+		2C6A444C248D37AF00AA24F8 /* CommentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -123,6 +130,13 @@
 		2C6A4438248D2EFE00AA24F8 /* CommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepository.swift; sourceTree = "<group>"; };
 		2C6A443A248D2F0A00AA24F8 /* APICommentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICommentRepository.swift; sourceTree = "<group>"; };
 		2C6A443C248D2F3300AA24F8 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		2C6A443F248D367700AA24F8 /* CommentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsPresenter.swift; sourceTree = "<group>"; };
+		2C6A4440248D367700AA24F8 /* CommentsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsWorker.swift; sourceTree = "<group>"; };
+		2C6A4441248D367700AA24F8 /* CommentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsRouter.swift; sourceTree = "<group>"; };
+		2C6A4442248D367700AA24F8 /* CommentsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsModels.swift; sourceTree = "<group>"; };
+		2C6A4443248D367700AA24F8 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		2C6A4444248D367700AA24F8 /* CommentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsInteractor.swift; sourceTree = "<group>"; };
+		2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentsStoryboard.storyboard; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +286,20 @@
 			path = Comments;
 			sourceTree = "<group>";
 		};
+		2C6A443E248D365B00AA24F8 /* CommentsScene */ = {
+			isa = PBXGroup;
+			children = (
+				2C6A443F248D367700AA24F8 /* CommentsPresenter.swift */,
+				2C6A4440248D367700AA24F8 /* CommentsWorker.swift */,
+				2C6A4441248D367700AA24F8 /* CommentsRouter.swift */,
+				2C6A4442248D367700AA24F8 /* CommentsModels.swift */,
+				2C6A4443248D367700AA24F8 /* CommentsViewController.swift */,
+				2C6A4444248D367700AA24F8 /* CommentsInteractor.swift */,
+				2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */,
+			);
+			path = CommentsScene;
+			sourceTree = "<group>";
+		};
 		2CDE752F2488F2E000949272 = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +358,7 @@
 				2CDE757C2488F94D00949272 /* ExploreScene */,
 				2CE2BD3C248C2A860064A8EE /* ProfileScene */,
 				2CEC7297248D112100BA523F /* PhotosScene */,
+				2C6A443E248D365B00AA24F8 /* CommentsScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -639,6 +668,7 @@
 				2CEC7296248CF95600BA523F /* TodoTableViewCell.xib in Resources */,
 				2CEC728F248CEE2F00BA523F /* AlbumTableViewCell.xib in Resources */,
 				2CDE756C2488F66F00949272 /* MainStoryboard.storyboard in Resources */,
+				2C6A444C248D37AF00AA24F8 /* CommentsStoryboard.storyboard in Resources */,
 				2C57F175248A3E84007FF471 /* ExploreCollectionViewCell.xib in Resources */,
 				2C6A4434248D250200AA24F8 /* PhotoCollectionViewCell.xib in Resources */,
 				2CDE757B2488F8E300949272 /* FeedStoryboard.storyboard in Resources */,
@@ -727,6 +757,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CEC729E248D114A00BA523F /* PhotosPresenter.swift in Sources */,
+				2C6A4448248D367700AA24F8 /* CommentsModels.swift in Sources */,
 				2C6A4433248D250200AA24F8 /* PhotoCollectionViewCell.swift in Sources */,
 				2C57F174248A3E84007FF471 /* ExploreCollectionViewCell.swift in Sources */,
 				2CEC728E248CEE2F00BA523F /* AlbumTableViewCell.swift in Sources */,
@@ -734,10 +765,12 @@
 				2CDE75882488F9CE00949272 /* ExploreInteractor.swift in Sources */,
 				2CDE75862488F9CE00949272 /* ExploreModels.swift in Sources */,
 				2C57F16C248A2AB7007FF471 /* PostsManager.swift in Sources */,
+				2C6A4449248D367700AA24F8 /* CommentsViewController.swift in Sources */,
 				2CEC72AA248D1A4600BA523F /* PhotoRepository.swift in Sources */,
 				2CDE75772488F8D400949272 /* FeedModels.swift in Sources */,
 				2CE2BD47248C2ACC0064A8EE /* ProfileViewController.swift in Sources */,
 				2C69AC3E248CE052009B2E24 /* Constants.swift in Sources */,
+				2C6A4445248D367700AA24F8 /* CommentsPresenter.swift in Sources */,
 				2C6A443B248D2F0A00AA24F8 /* APICommentRepository.swift in Sources */,
 				2CE2BD48248C2ACC0064A8EE /* ProfileInteractor.swift in Sources */,
 				2CE2BD45248C2ACC0064A8EE /* ProfileRouter.swift in Sources */,
@@ -752,6 +785,7 @@
 				2CEC7295248CF95600BA523F /* TodoTableViewCell.swift in Sources */,
 				2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */,
 				2CEC72AC248D1A4F00BA523F /* APIPhotoRepository.swift in Sources */,
+				2C6A4446248D367700AA24F8 /* CommentsWorker.swift in Sources */,
 				2C69AC30248CCF4C009B2E24 /* TodoRepository.swift in Sources */,
 				2CDE75852488F9CE00949272 /* ExploreRouter.swift in Sources */,
 				2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */,
@@ -762,6 +796,7 @@
 				2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */,
 				2C69AC38248CD419009B2E24 /* AlbumRepository.swift in Sources */,
 				2C69AC34248CD02B009B2E24 /* Album.swift in Sources */,
+				2C6A444A248D367700AA24F8 /* CommentsInteractor.swift in Sources */,
 				2C6A4439248D2EFE00AA24F8 /* CommentRepository.swift in Sources */,
 				2CE2BD43248C2ACC0064A8EE /* ProfilePresenter.swift in Sources */,
 				2CDE75782488F8D400949272 /* FeedViewController.swift in Sources */,
@@ -776,6 +811,7 @@
 				2CDE75652488F63D00949272 /* MainPresenter.swift in Sources */,
 				2CDE75872488F9CE00949272 /* ExploreViewController.swift in Sources */,
 				2CDE75A2248916E700949272 /* Post.swift in Sources */,
+				2C6A4447248D367700AA24F8 /* CommentsRouter.swift in Sources */,
 				2CDE75902488FF7000949272 /* String+Additions.swift in Sources */,
 				2C69AC36248CD187009B2E24 /* APITodoRepository.swift in Sources */,
 				2CE2BD44248C2ACC0064A8EE /* ProfileWorker.swift in Sources */,

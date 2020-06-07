@@ -14,15 +14,24 @@ import UIKit
 
 protocol FeedPresentationLogic {
     func setupView(response: Feed.Models.Response)
+    func displayLoading(_ show: Bool)
+    func presentComments()
 }
 
 class FeedPresenter: FeedPresentationLogic {
     
     weak var viewController: FeedDisplayLogic?
     
-    
     func setupView(response: Feed.Models.Response) {
         let viewModel = Feed.Models.ViewModel()
         viewController?.setupView(viewModel: viewModel)
+    }
+    
+    func displayLoading(_ show: Bool) {
+        viewController?.displayLoading(show)
+    }
+    
+    func presentComments() {
+        viewController?.displayComments()
     }
 }

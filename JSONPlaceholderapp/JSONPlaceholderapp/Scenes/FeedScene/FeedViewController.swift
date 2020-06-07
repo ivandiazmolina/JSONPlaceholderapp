@@ -14,7 +14,9 @@ import UIKit
 
 protocol FeedDisplayLogic: class {
     func setupView(viewModel: Feed.Models.ViewModel)
+    func displayLoading(_ show: Bool)
     func displayPosts(viewModel: Feed.Models.ViewModel)
+    func displayComments()
 }
 
 class FeedViewController: BaseViewController, FeedDisplayLogic {
@@ -52,6 +54,14 @@ class FeedViewController: BaseViewController, FeedDisplayLogic {
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor        
+    }
+    
+    func displayLoading(_ show: Bool) {
+        show ? showLoading() : dismissLoading()
+    }
+    
+    func displayComments() {
+        router?.routeToComments(segue: nil)
     }
     
     // MARK: Routing
@@ -123,9 +133,14 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
         cell.updateUI(model: data)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -136,5 +151,16 @@ extension FeedViewController: MainDelegate {
    
     func fetchedPosts(posts: [Post]) {
         reloadData()
+    }
+}
+
+// MARK: FeedTableViewCellDelegate
+
+extension FeedViewController: FeedTableViewCellDelegate {
+    
+    func onTouchSeeComments(for post: Post?) {
+        
+        guard let mPost = post else { return }
+        interactor?.loadComments(for: mPost)
     }
 }

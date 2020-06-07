@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FeedTableViewCellDelegate {
+    func onTouchSeeComments(for post: Post?)
+}
+
 class FeedTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
@@ -18,6 +22,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var seeCommentsButton: UIButton!
     
     // MARK: LETS and VARS
+    var delegate: FeedTableViewCellDelegate?
+    private var post: Post?
     
     static var cellIdentifier: String {
         return String(describing: FeedTableViewCell.self)
@@ -27,14 +33,19 @@ class FeedTableViewCell: UITableViewCell {
 
         self.applyStyle()
         
+        post = model.post
+        
         userNameLabel.text = String(format: "UserId: %d", model.post?.userId ?? "")
         postLabel.text = model.post?.body
     }
-
+    
     func applyStyle() {
        
 //        user.textColor = UIColor.greenPersonal
 //        bgView.backgroundColor = UIColor.orange
     }
     
+    @IBAction func onTouchSeeComments(_ sender: UIButton) {
+        delegate?.onTouchSeeComments(for: post)
+    }
 }

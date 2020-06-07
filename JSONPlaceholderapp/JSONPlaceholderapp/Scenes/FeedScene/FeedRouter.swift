@@ -13,6 +13,7 @@
 import UIKit
 
 @objc protocol FeedRoutingLogic {
+    func routeToComments(segue: UIStoryboardSegue?)
 }
 
 protocol FeedDataPassing {
@@ -22,4 +23,34 @@ protocol FeedDataPassing {
 class FeedRouter: NSObject, FeedRoutingLogic, FeedDataPassing {
     weak var viewController: FeedViewController?
     var dataStore: FeedDataStore?
+    
+    // MARK: Routing
+    
+    func routeToComments(segue: UIStoryboardSegue?) {
+        
+        let storyboard = UIStoryboard(name: Constants.Storyboard.comments, bundle: nil)
+        
+        if let segue = segue, let destinationVC = segue.destination as? CommentsViewController {
+            var destinationDS = destinationVC.router?.dataStore
+            passDataToComments(source: dataStore, destination: &destinationDS)
+        } else if let destinationVC = storyboard.instantiateInitialViewController() as? CommentsViewController {
+            var destinationDS = destinationVC.router?.dataStore
+            passDataToComments(source: dataStore, destination: &destinationDS)
+            navigateToComments(source: viewController!, destination: destinationVC)
+        }
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToComments(source: FeedViewController, destination: CommentsViewController) {
+        ui {
+            source.present(destination, animated: true)
+        }
+    }
+    
+    // MARK: Passing data
+    
+    func passDataToComments(source: FeedDataStore?, destination: inout CommentsDataStore?) {
+        destination?.comments = source?.comments
+    }
 }

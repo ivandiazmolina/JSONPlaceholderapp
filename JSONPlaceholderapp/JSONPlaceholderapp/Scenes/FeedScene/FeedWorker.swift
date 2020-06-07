@@ -13,4 +13,16 @@
 import UIKit
 
 class FeedWorker {
+    
+    func getComments(for post: Post, completion: @escaping([Comment]?, String?) -> Void) {
+        
+        // LETS and VARS
+        let commentsRepository = CommentRepository()
+        
+        // Get Comments
+        commentsRepository.getComments(for: post) { (comments) in
+            print(comments)
+            completion(comments, nil)
+        }
+    }
 }

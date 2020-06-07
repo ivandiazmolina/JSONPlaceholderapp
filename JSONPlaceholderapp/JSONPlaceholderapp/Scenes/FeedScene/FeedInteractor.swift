@@ -20,10 +20,15 @@ protocol FeedBusinessLogic {
     func setPosts(_ posts: [Post])
     func getPostsCount() -> Int
     func getPostCellFor(index: Int) -> Feed.Models.PostCellModel
+    
+    // MARK: Comments
+    
+    func loadComments(for post: Post)
 }
 
 protocol FeedDataStore {
     var posts: [Post]? { get set }
+    var comments: [Comment]? { get set }
 }
 
 class FeedInteractor: FeedBusinessLogic, FeedDataStore {
@@ -32,14 +37,14 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     var worker: FeedWorker?
     
     var posts: [Post]?
+    var comments: [Comment]?
     
     func setupView() {
         worker = FeedWorker()
         let response: Feed.Models.Response = Feed.Models.Response()
         presenter?.setupView(response: response)
     }
-    
-    
+
     // MARK: Posts
     
     func setPosts(_ posts: [Post]) {
@@ -53,5 +58,24 @@ class FeedInteractor: FeedBusinessLogic, FeedDataStore {
     func getPostCellFor(index: Int) -> Feed.Models.PostCellModel {
         guard let post = posts?.getElement(index) else { return Feed.Models.PostCellModel() }
         return Feed.Models.PostCellModel(post: post)
+    }
+    
+    // MARK: Comments
+    
+    func loadComments(for post: Post) {
+        
+        presenter?.displayLoading(true)
+
+        let deadlineTime = DispatchTime.now() + 1
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
+            self?.worker?.getComments(for: post, completion: { [weak self] (comments, error) in
+
+                self?.comments = comments
+
+                self?.presenter?.displayLoading(false)
+                self?.presenter?.presentComments()
+            })
+        }
+        
     }
 }

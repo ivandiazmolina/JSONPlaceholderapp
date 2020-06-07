@@ -25,5 +25,4 @@ class ProfileWorker {
             completion(photos, nil)
         }
     }
-    
 }

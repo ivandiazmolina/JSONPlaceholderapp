@@ -15,6 +15,7 @@ struct Constants {
         static let explore: String = "ExploreStoryboard"
         static let profile: String = "ProfileStoryboard"
         static let photos: String = "PhotosStoryboard"
+        static let comments: String = "CommentsStoryboard"
     }
     
     struct Avatar {
