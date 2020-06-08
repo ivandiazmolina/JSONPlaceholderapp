@@ -14,7 +14,7 @@ import UIKit
 
 class MainWorker {
     
-    func getInicialData(completion: @escaping([Post]?, [User]?, String?) -> Void) {
+    func getInitialData(completion: @escaping([Post]?, [User]?, String?) -> Void) {
         
         // LETS and VARS
         var mPosts: [Post]?

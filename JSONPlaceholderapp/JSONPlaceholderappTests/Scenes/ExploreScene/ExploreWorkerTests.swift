@@ -17,11 +17,21 @@ class ExploreWorkerTests: XCTestCase {
     // MARK: Subject under test
     
     var sut: ExploreWorker!
+    var user: User?
     
     // MARK: Test lifecycle
     
     override func setUp() {
         super.setUp()
+        
+        user = User()
+        user?.id = 1
+        user?.name = "name"
+        user?.username = "username"
+        user?.email = "email"
+        user?.website = "website"
+        user?.avatar = "avatar"
+        
         setupExploreWorker()
     }
     
@@ -35,7 +45,80 @@ class ExploreWorkerTests: XCTestCase {
         sut = ExploreWorker()
     }
     
+    // MARK: Repositories Spy
+    class SuccessExploreWorker : ExploreWorker {
+        
+        var albums: [Album]?
+        var todos: [Todo]?
+        var getAlbumsAndTodosCalled = false
+        
+        override func getAlbumsAndTodos(for user: User, completion: @escaping ([Album]?, [Todo]?, String?) -> Void) {
+            
+            getAlbumsAndTodosCalled = true
+            
+            albums = []
+            todos = []
+            
+            for index in 0...2 {
+                
+                var album = Album()
+                album.userId = user.id
+                album.id = index
+                album.title = "title"
+                
+                albums?.append(album)
+                
+                var todo = Todo()
+                todo.userId = user.id
+                todo.id = index
+                todo.title = "title"
+                todo.completed = true
+                
+                todos?.append(todo)
+                
+            }
+            completion(albums, todos, "")
+        }
+    }
+    
+    class FailureExploreWorker : ExploreWorker {
+        
+        var getAlbumsAndTodosCalled = false
+        
+        override func getAlbumsAndTodos(for user: User, completion: @escaping ([Album]?, [Todo]?, String?) -> Void) {
+            
+            getAlbumsAndTodosCalled = true
+            
+            completion([], [], "")
+        }
+        
+    }
+    
     // MARK: Test doubles
     
     // MARK: Tests
+    
+    func testGetAlbumsAndTodos() {
+        
+        // Given
+        let sut = SuccessExploreWorker()
+        var mAlbums: [Album]?
+        var mTodos: [Todo]?
+        let completedExpectation = expectation(description: "Completed")
+        
+        // When
+        sut.getAlbumsAndTodos(for: user ?? User()) { (albums, todos, error) in
+            mAlbums = albums
+            mTodos = todos
+            completedExpectation.fulfill()
+        }
+        
+        // Then
+        XCTAssertTrue(sut.getAlbumsAndTodosCalled)
+        waitForExpectations(timeout: 1.1) { (error) in
+            // Then
+            XCTAssertEqual(self.user?.id, mAlbums?.first?.userId, "User id is not same")
+            XCTAssertEqual(self.user?.id, mTodos?.first?.userId, "User id is not same")
+        }
+    }
 }

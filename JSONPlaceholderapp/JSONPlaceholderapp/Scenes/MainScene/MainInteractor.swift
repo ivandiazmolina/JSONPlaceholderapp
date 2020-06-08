@@ -32,7 +32,7 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
     }
     
     func getInitialData() {
-        worker?.getInicialData(completion: { [weak self] (posts, users, error) in
+        worker?.getInitialData(completion: { [weak self] (posts, users, error) in
             
             guard error != nil else {
                 
@@ -46,6 +46,7 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
             }
             
             // FAILURE
+            self?.presenter?.presentPostsAndUsers(response: Main.Models.Response())
         })
     }
 }

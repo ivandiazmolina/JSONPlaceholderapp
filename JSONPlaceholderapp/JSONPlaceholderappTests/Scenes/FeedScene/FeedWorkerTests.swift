@@ -17,11 +17,19 @@ class FeedWorkerTests: XCTestCase {
     // MARK: Subject under test
     
     var sut: FeedWorker!
+    var post: Post?
     
     // MARK: Test lifecycle
     
     override func setUp() {
         super.setUp()
+        
+        post = Post()
+        post?.userId = 1
+        post?.id = 1
+        post?.title = "title"
+        post?.body = "body"
+        
         setupFeedWorker()
     }
     
@@ -35,7 +43,66 @@ class FeedWorkerTests: XCTestCase {
         sut = FeedWorker()
     }
     
+    // MARK: Repositories Spy
+    class SuccessFeedWorker : FeedWorker {
+        
+        var comments: [Comment]?
+        var getCommentsCalled = false
+        
+        override func getComments(for post: Post, completion: @escaping ([Comment]?, String?) -> Void) {
+            getCommentsCalled = true
+            
+            comments = []
+            
+            for index in 0...2 {
+                var comment = Comment()
+                comment.postId = post.id
+                comment.id = index
+                comment.name = "name"
+                comment.email = "email"
+                comment.body = "body"
+                
+                comments?.append(comment)
+            }
+            completion(comments, "")
+        }
+    }
+    
+    class FailureFeedWorker : FeedWorker {
+        
+        var comments: [Comment]?
+        var getCommentsCalled = false
+        
+        override func getComments(for post: Post, completion: @escaping ([Comment]?, String?) -> Void) {
+            getCommentsCalled = true
+            
+            completion([], "")
+        }
+        
+    }
+    
     // MARK: Test doubles
     
     // MARK: Tests
+    
+    func testGetComments() {
+        
+        // Given
+        let sut = SuccessFeedWorker()
+        var mComments: [Comment]?
+        let completedExpectation = expectation(description: "Completed")
+        
+        // When
+        sut.getComments(for: post ?? Post()) { (comments, error) in
+            mComments = comments
+            completedExpectation.fulfill()
+        }
+        
+        // Then
+        XCTAssertTrue(sut.getCommentsCalled)
+        waitForExpectations(timeout: 1.1) { (error) in
+            // Then
+            XCTAssertEqual(self.post?.id, mComments?.first?.postId, "Post id is not same")
+        }
+    }
 }
