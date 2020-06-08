@@ -42,6 +42,10 @@
 		2C6A444C248D37AF00AA24F8 /* CommentsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */; };
 		2C6A444F248D3ABA00AA24F8 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6A444D248D3ABA00AA24F8 /* CommentTableViewCell.swift */; };
 		2C6A4450248D3ABA00AA24F8 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C6A444E248D3ABA00AA24F8 /* CommentTableViewCell.xib */; };
+		2C7FBC0A248E178700468A78 /* ExploreViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FBC06248E178700468A78 /* ExploreViewControllerTests.swift */; };
+		2C7FBC0B248E178700468A78 /* ExploreInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FBC07248E178700468A78 /* ExploreInteractorTests.swift */; };
+		2C7FBC0C248E178700468A78 /* ExploreWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FBC08248E178700468A78 /* ExploreWorkerTests.swift */; };
+		2C7FBC0D248E178700468A78 /* ExplorePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FBC09248E178700468A78 /* ExplorePresenterTests.swift */; };
 		2CDE753C2488F2E000949272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753B2488F2E000949272 /* AppDelegate.swift */; };
 		2CDE753E2488F2E000949272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753D2488F2E000949272 /* SceneDelegate.swift */; };
 		2CDE75402488F2E000949272 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDE753F2488F2E000949272 /* BaseViewController.swift */; };
@@ -157,6 +161,10 @@
 		2C6A444B248D37AF00AA24F8 /* CommentsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentsStoryboard.storyboard; sourceTree = "<group>"; };
 		2C6A444D248D3ABA00AA24F8 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		2C6A444E248D3ABA00AA24F8 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
+		2C7FBC06248E178700468A78 /* ExploreViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewControllerTests.swift; sourceTree = "<group>"; };
+		2C7FBC07248E178700468A78 /* ExploreInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreInteractorTests.swift; sourceTree = "<group>"; };
+		2C7FBC08248E178700468A78 /* ExploreWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreWorkerTests.swift; sourceTree = "<group>"; };
+		2C7FBC09248E178700468A78 /* ExplorePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePresenterTests.swift; sourceTree = "<group>"; };
 		2CDE75382488F2E000949272 /* JSONPlaceholderapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONPlaceholderapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDE753B2488F2E000949272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDE753D2488F2E000949272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +281,7 @@
 		2C67A3AA248D3FE300D2E2DE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2C7FBC05248E176E00468A78 /* ExploreScene */,
 				2C67A3B4248D80B200D2E2DE /* FeedScene */,
 				2C67A3AB248D3FF100D2E2DE /* ProfileScene */,
 			);
@@ -359,6 +368,17 @@
 				2C6A444E248D3ABA00AA24F8 /* CommentTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2C7FBC05248E176E00468A78 /* ExploreScene */ = {
+			isa = PBXGroup;
+			children = (
+				2C7FBC06248E178700468A78 /* ExploreViewControllerTests.swift */,
+				2C7FBC07248E178700468A78 /* ExploreInteractorTests.swift */,
+				2C7FBC08248E178700468A78 /* ExploreWorkerTests.swift */,
+				2C7FBC09248E178700468A78 /* ExplorePresenterTests.swift */,
+			);
+			path = ExploreScene;
 			sourceTree = "<group>";
 		};
 		2CDE752F2488F2E000949272 = {
@@ -907,6 +927,10 @@
 				2C67A3B2248D401000D2E2DE /* ProfileWorkerTests.swift in Sources */,
 				2C67A3BA248D820100D2E2DE /* FeedInteractorTests.swift in Sources */,
 				2C67A3B1248D401000D2E2DE /* ProfileInteractorTests.swift in Sources */,
+				2C7FBC0B248E178700468A78 /* ExploreInteractorTests.swift in Sources */,
+				2C7FBC0D248E178700468A78 /* ExplorePresenterTests.swift in Sources */,
+				2C7FBC0C248E178700468A78 /* ExploreWorkerTests.swift in Sources */,
+				2C7FBC0A248E178700468A78 /* ExploreViewControllerTests.swift in Sources */,
 				2C67A3B9248D820100D2E2DE /* FeedViewControllerTests.swift in Sources */,
 				2C67A3BC248D820100D2E2DE /* FeedPresenterTests.swift in Sources */,
 				2CDE75532488F2E200949272 /* JSONPlaceholderappTests.swift in Sources */,
