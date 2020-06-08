@@ -1,6 +1,6 @@
 # JSONPlaceholderapp
 
-App to manage network requests and show them data on the screen
+App to manage network requests and show their data on the screen
 
 
 # About the project.
