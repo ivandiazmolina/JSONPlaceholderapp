@@ -55,7 +55,8 @@ class MainWorker {
         }
     }
     
-    
+    /// Method that assigns an avatar to an user
+    /// - Parameter user: user
     func assignAvatar(for user: User) -> User {
         
         var mUser = user

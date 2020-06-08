@@ -16,14 +16,14 @@ class PhotoRepository {
   
     private var apiRepository: PhotoRepositoryProtocol = APIPhotoRepository()
     
-    /// Metodo que obtiene fotos
+    /// Method that requests the photos of an album
     /// - Parameter completion: completion
     func getPhotos(for album: Album, completion: @escaping ([Photo]) -> Void) {
         
-        // 1. intento obtener las fotos de la API
+        // 1. try to get the remote photos
         apiRepository.getPhotos(for: album) { (photos) in
             
-            // 2. devuelvo las fotos
+            // 2. return the photos
             completion(photos)
         }
     }

@@ -17,27 +17,27 @@ class PostRepository {
     private var apiRepository: PostRepositoryProtocol = APIPostRepository()
     private var localRepository: PostRepositoryProtocol = LocalPostRepository()
     
-    /// Metodo que obtiene posts
+    /// Method that requests the posts
     /// - Parameter completion: completion
     func getPosts(completion: @escaping ([Post]) -> Void) {
         
-        // 1. intento obtener los posts de local
+        // 1. try to get the local posts
         localRepository.getPosts { [weak self] (posts) in
             
-            // 2. devuelvo los posts que tengo en local
+            // 2. return the local posts if it is not empty
             if !posts.isEmpty {
                 completion(posts)
             }
             
-            // 3. intento obtener los posts de la API
+            // 3. try to get the remote posts
             self?.apiRepository.getPosts { (posts) in
                 
-                // 4. si llegan posts, los guardo en memoria
+                // 4. if it is not empty, save it in local
                 if !posts.isEmpty {
                     PostsManager.shared.setPosts(posts)
                 }
                 
-                // 5. devuelvo los posts
+                // 5. return the posts
                 completion(posts)
             }
         }

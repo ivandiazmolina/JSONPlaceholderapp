@@ -31,6 +31,7 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
         presenter?.setupView(response: response)
     }
     
+    /// Method that downloads the initial data. Retrieve the posts and users
     func getInitialData() {
         worker?.getInitialData(completion: { [weak self] (posts, users, error) in
             

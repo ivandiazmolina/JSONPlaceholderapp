@@ -16,14 +16,14 @@ class TodoRepository {
   
     private var apiRepository: TodoRepositoryProtocol = APITodoRepository()
     
-    /// Metodo que obtiene todos
+    /// Method that requests the todos of an user
     /// - Parameter completion: completion
     func getTodos(for user: User, completion: @escaping ([Todo]) -> Void) {
         
-        // 3. intento obtener los todos de la API
+        // 1. try to get the remote todos
         apiRepository.getTodos(for: user) { (posts) in
             
-            // 5. devuelvo los todos
+            // 2. return the todos
             completion(posts)
         }
     }

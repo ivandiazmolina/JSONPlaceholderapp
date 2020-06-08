@@ -14,6 +14,9 @@ import UIKit
 
 class ProfileWorker {
     
+    /// Method that requests data from the repository
+    /// - Parameter album: selected album
+    /// - Parameter completion: completion
     func getPhotos(for album: Album, completion: @escaping([Photo]?, String?) -> Void) {
         
         // LETS and VARS

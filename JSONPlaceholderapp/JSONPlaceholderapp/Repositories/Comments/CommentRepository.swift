@@ -16,14 +16,14 @@ class CommentRepository {
   
     private var apiRepository: CommentRepositoryProtocol = APICommentRepository()
     
-    /// Metodo que obtiene fotos
+    /// Method that requests the comments of an post
     /// - Parameter completion: completion
     func getComments(for post: Post, completion: @escaping ([Comment]) -> Void) {
         
-        // 1. intento obtener los comentarios de la API
+        // 1. try to get the remote comments
         apiRepository.getComments(for: post) { (comments) in
             
-            // 2. devuelvo los comentarios
+            // 2. return the comments
             completion(comments)
         }
     }

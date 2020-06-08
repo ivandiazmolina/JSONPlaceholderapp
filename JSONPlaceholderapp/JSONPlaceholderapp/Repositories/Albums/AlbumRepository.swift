@@ -16,14 +16,14 @@ class AlbumRepository {
   
     private var apiRepository: AlbumRepositoryProtocol = APIAlbumRepository()
     
-    /// Metodo que obtiene albums
+    /// Method that requests the albums of an user
     /// - Parameter completion: completion
     func getAlbums(for user: User, completion: @escaping ([Album]) -> Void) {
         
-        // 1. intento obtener los albums de la API
+        // 1. try to get the remote albums
         apiRepository.getAlbums(for: user) { (albums) in
             
-            // 2. devuelvo los albums
+            // 2. return the albums
             completion(albums)
         }
     }
